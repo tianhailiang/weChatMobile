@@ -1,0 +1,38 @@
+{
+  "code": 0,
+  "message": "用户登录成功。",
+  
+  "data":{
+   
+   "votePicture":"http://localhost:7777/static/mockImg/p1.jpg",
+   "contestantList":[
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
+       {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"}
+
+   ]
+
+  } 
+  
+}

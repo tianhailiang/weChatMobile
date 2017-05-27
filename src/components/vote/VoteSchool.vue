@@ -1,0 +1,170 @@
+<style scoped>
+
+ .vote-top{
+      width:100%;
+      height:200px;
+    }
+
+.vote-top img{
+  width:100%;
+  height:100%;
+}
+
+  .search{
+      width:100%;
+      display: flex;
+      height:50px;
+      align-items: center;
+      padding:0 20px;
+      box-sizing: border-box;
+    }
+
+    .search input{
+      height:30px;
+      border:1px solid #dcdcdc;
+      flex:1;
+      border-radius: 10px;
+      margin-right: 10px;
+      padding-left: 5px;
+    }
+
+     .search span{
+      display: block;
+      width:50px;
+      height:30px;
+      background:#6b3906;
+      color:#fff;
+      text-align:center;
+      line-height: 30px;
+      border-radius: 5px;
+
+     }
+
+     .search span:active{
+      background:rgba(107,57,6,0.7);
+     }
+
+
+     .vote_school_ul{
+      display: flex;
+      flex-wrap:wrap;
+      padding:0 20px;
+     }
+
+     .vote_school_ul li{
+     
+       width:50%;
+       box-sizing: border-box;
+
+     } 
+
+      .vote_school_ul li:nth-of-type(2n+1){
+        
+        padding-right:5px;
+      }
+
+     .vote_school_ul li:nth-of-type(2n){
+       padding-left: 5px
+     }
+
+    
+
+     .vote_school_img{
+       height:150px;
+       width:100%;
+     }
+
+     .vote_school_figure figcaption{
+      height:40px;
+      text-align: center;
+      line-height: 40px;
+      color:#6a3906;
+     }
+
+
+</style>
+
+
+<template>
+  <div>
+
+      <div class="vote-top">
+        <img :src="votePicture" />
+      </div>
+
+      <div class="search">
+         
+         <input type="text" v-model="searchVal" placeholder="请输入你要投票选手的编号或者名字" >
+         <span>搜索</span>
+
+      </div>
+
+     <ul class="vote_school_ul" >
+
+        <router-link   tag="li" v-for="item in schoolList" :key="item.schoolId" :to="{name:'voteClass',params: { id: item.schoolId}}">
+       
+
+            <figure class="vote_school_figure">
+                     <img v-lazy="item.schoolPicture" class="vote_school_img" />
+                     
+                     <figcaption>{{item.schoolName}}</figcaption> 
+            </figure>
+
+        </router-link>  
+       
+
+     </ul>
+    
+
+  </div>
+    
+</template>
+
+<script>
+
+import axios from 'axios';
+
+export default {
+  name: 'VoteSchool',
+  data () {
+    return {
+     votePicture:'', 
+     searchVal:'',
+     schoolList:[]
+    }
+  },
+  components: {
+    
+  },
+  
+  mounted:function(){
+
+      axios.get("http://localhost:7777/static/getmock/voteSchool.json",{
+
+           })
+          .then(function (response) {
+
+            var result =response.data;
+
+              if(result.code==0){
+
+                 console.log(result)
+                 this.$set(this,"votePicture",result.data.votePicture);
+                 this.$set(this,"schoolList",result.data.schoolList);
+
+                
+              }else{
+
+                console.log(result.msg)
+              } 
+             
+          }.bind(this))
+          .catch(function (error) {
+              console.log(error);
+          });
+
+
+  }
+
+ } 
+</script>
