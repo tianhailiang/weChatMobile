@@ -5,6 +5,9 @@
   "data":{
    
    "votePicture":"http://localhost:7777/static/mockImg/p1.jpg",
+   "concern":{
+    "balance":0
+   },
    "contestantList":[
        {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
        {"contestantPicture":"http://localhost:7777/static/mockImg/p2.jpg","contestantName":"张小白","contestantId":"1","number":"001"},
