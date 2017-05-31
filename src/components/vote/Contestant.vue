@@ -60,7 +60,7 @@
      }
 
 .vote_school_figure div{
-  box-sizing: border-box;
+   box-sizing: border-box;
     padding-left: 10px;
     margin-top: 10px;
 }
