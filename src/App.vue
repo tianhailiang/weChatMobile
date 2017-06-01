@@ -33,7 +33,7 @@ textarea { resize: none; }
 html { -webkit-text-size-adjust:none;overflow-x:hidden;}
 article， aside， details， figcaption， figure， footer， header， hgroup， menu， nav， section { display: block; }
 img { display: block; }
-.video embed， .video object， .video iframe { width: 100%; height: auto; }
+
 a { border:0; text-decoration: none; outline: none;}
 a,button,input{-webkit-tap-highlight-color:rgba(255,0,0,0);
   border: none;outline: none;
@@ -82,5 +82,7 @@ html, body {
   width:100%;
   height:100%;
 }
+
+
 </style>
 
