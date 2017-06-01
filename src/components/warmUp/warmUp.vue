@@ -234,44 +234,10 @@
         </ul>
 
       </div>
-        <!--<style>-->
-          <!---->
-        <!--</style>-->
-      <div class="videoBox">
-      <video
-      id="my-player"
-      class="video-js"
-      controls
-      width="100%"
-      height="100%"
-      preload="auto"
-      data-setup='{}'>
-      <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
-      <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm"></source>
-      <source src="//vjs.zencdn.net/v/oceans.ogv" type="video/ogg"></source>
-      <p class="vjs-no-js">
-      您的浏览器还不支持此类型视频播放！请尝试升级浏览器！
-      <a href="http://videojs.com/html5-video-support/" target="_blank">
-      supports HTML5 video
-      </a>
-      </p>
-      </video>
-      </div>
-    </div>
   </div>
-
+  </div>
 </template>
 
-<style>
-  .videoBox{
-    width: 100%;
-  }
-  .video-js{
-    width: 100%;
-    height: 200px;
-
-  }
-</style>
 
 <script>
   export default {

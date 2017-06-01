@@ -9,10 +9,10 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.js'  //设置了webpack的入口文件
   },
   output: {
-    path: config.build.assetsRoot,
+    path: config.build.assetsRoot,  //设置了webpcak的打包之后的文件的存放路径
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
