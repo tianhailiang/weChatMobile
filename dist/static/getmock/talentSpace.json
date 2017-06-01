@@ -18,27 +18,32 @@
 
       {
         "videoPicture":"http://localhost:7777/static/mockImg/p1.jpg",
-        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4"
+        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4","type":"mp4"
       },
       {
         "videoPicture":"http://localhost:7777/static/mockImg/p2.jpg",
-        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4"
+        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        "type":"mp4"
       },
       {
         "videoPicture":"http://localhost:7777/static/mockImg/p3.jpg",
-        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4"
+        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        "type":"mp4"
       },
       {
         "videoPicture":"http://localhost:7777/static/mockImg/p4.jpg",
-        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4"
+        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        "type":"mp4"
       },
       {
         "videoPicture":"http://localhost:7777/static/mockImg/p1.jpg",
-        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4"
+        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        "type":"mp4"
       },
       {
         "videoPicture":"http://localhost:7777/static/mockImg/p2.jpg",
-        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4"
+        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        "type":"mp4"
       }
 
    ]
