@@ -43,6 +43,20 @@
 
 
 
+
+
+
+
+</style>
+
+
+<style type="text/css" media="screen">
+
+.video-js {
+  width:100%;
+  height:150px;
+}
+  
 </style>
 
 <template>
@@ -74,9 +88,17 @@
 
              <li v-for="(item,index) in videoList" :key="index">
              	
-             	 <img :src="item.videoPicture" @click="videoPlay(index)"  v-show="pictureFlag[index]" />
-             	  <video  controls width="100%" height="100%" :src="item.videoSource" v-show="videoFlag[index]"  >
-				
+             	  
+                 <video id="my-player" class="video-js" controls preload="auto" :poster="item.videoPicture" data-setup='{}'>
+                  <source   :src="item.videoSource" :type="'video/'+item.type">
+                   
+                    <p class="vjs-no-js">
+                        您的浏览器还不支持此类型视频播放！请尝试升级浏览器！
+                        <a href="http://videojs.com/html5-video-support/" target="_blank">
+                            supports HTML5 video
+                        </a>
+                    </p>
+
                 </video>
 
              </li>
@@ -102,8 +124,6 @@ export default {
 
            albumList:[],
            videoList:[],
-           pictureFlag:[],
-           videoFlag:[],
            dialogVisble:false
 
 		}
@@ -111,12 +131,6 @@ export default {
 
 	methods:{
    
-      videoPlay(index){
-          
-         this.pictureFlag.splice(index,1,false);
-         this.videoFlag.splice(index,1,true);
-
-      }
      
 	},
 
@@ -137,18 +151,7 @@ export default {
                    this.$set(this,"albumList",result.data.albumList);
                    this.$set(this,"videoList",result.data.videoList);
                    
-                   var that=this;
-                   this.videoList.map(function(item,index){
-                     
-                      that.pictureFlag.push(true);
-                      that.videoFlag.push(false);
-
-                   });
-                   
-                   console.log(this.videoFlag)
-
-
-
+                 
                   
                 }else{
 

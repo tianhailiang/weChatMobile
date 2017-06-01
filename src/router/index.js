@@ -21,7 +21,7 @@ import  aboutUcan from   '@/components/aboutMe/aboutUcan' //关于优看
 Vue.use(Router)
 
 export default new Router({
-  mode:'history',
+
   routes: [
     {
       path: '/',
