@@ -35,7 +35,7 @@ textarea { resize: none; }
 html { -webkit-text-size-adjust:none;overflow-x:hidden;}
 article， aside， details， figcaption， figure， footer， header， hgroup， menu， nav， section { display: block; }
 img { display: block; }
-.video embed， .video object， .video iframe { width: 100%; height: auto; }
+
 a { border:0; text-decoration: none; outline: none;}
 a,button,input{-webkit-tap-highlight-color:rgba(255,0,0,0);
   border: none;outline: none;
@@ -85,6 +85,7 @@ html, body {
   height:100%;
 }
 
+
 .vjs-big-play-button{
         position: absolute !important;
         left: 50% !important;
@@ -102,5 +103,6 @@ html, body {
   .vjs-big-play-button::before{
         line-height: 2em !important;
   }
+
 </style>
 

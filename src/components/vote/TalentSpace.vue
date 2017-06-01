@@ -75,7 +75,7 @@
              <li v-for="(item,index) in videoList" :key="index">
              	
              	 <img :src="item.videoPicture" @click="videoPlay(index)"  v-show="pictureFlag[index]" />
-             	  <video  controls width="100%" height="150px" :src="item.videoSource" v-show="videoFlag[index]"  >
+             	  <video  controls width="100%" height="100%" :src="item.videoSource" v-show="videoFlag[index]"  >
 				
                 </video>
 
