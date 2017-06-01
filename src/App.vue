@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    
+
     <router-view></router-view>
   </div>
 </template>
@@ -61,7 +61,7 @@ FontAwesome, sans-serif;color:#030000; overflow-x:hidden;
 html, body {
     width: 100%;
     height: 100%;
-  
+
 }
 
 
@@ -73,16 +73,34 @@ html, body {
 }
 
 #app {
- 
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
   color: #2c3e50;
- 
+
   width:100%;
   height:100%;
 }
 
+
+.vjs-big-play-button{
+        position: absolute !important;
+        left: 50% !important;
+        top:50% !important;
+        transform:translate(-50%, -50%) !important;
+        -ms-transform:translate(-50%, -50%) !important; 	/* IE 9 */
+        -moz-transform:translate(-50%, -50%) !important; 	/* Firefox */
+        -webkit-transform:translate(-50%, -50%) !important; /* Safari 和 Chrome */
+        -o-transform:translate(-50%, -50%) !important;
+        width: 2em !important;
+        height: 2em !important;
+        border-radius: 50% !important;
+
+}
+  .vjs-big-play-button::before{
+        line-height: 2em !important;
+  }
 
 </style>
 

@@ -1,0 +1,31 @@
+{
+  "code": 0,
+  "message": "用户登录成功。",
+  "data":{
+    "aboutUcan":{
+      "featuredCourses":[
+        {
+          "coursePicture":"http://localhost:7777/static/mockImg/p1.jpg",
+          "courseName":"趣学英语",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"http://localhost:7777/static/mockImg/p1.jpg",
+          "courseName":"思学通数学",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"http://localhost:7777/static/mockImg/p1.jpg",
+          "courseName":"趣学英语",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"http://localhost:7777/static/mockImg/p1.jpg",
+          "courseName":"思学通数学",
+          "courseId":"1"
+        }
+      ]
+    }
+  }
+
+}

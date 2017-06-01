@@ -1,0 +1,19 @@
+{
+  "code": 0,
+  "message": "用户登录成功。",
+  
+  "data":{
+   
+   "banner":[
+       {"bannerUrl":"http://localhost:7777/static/mockImg/p1.jpg"},
+       {"bannerUrl":"http://localhost:7777/static/mockImg/p2.jpg"},
+       {"bannerUrl":"http://localhost:7777/static/mockImg/p3.jpg"},
+       {"bannerUrl":"http://localhost:7777/static/mockImg/p4.jpg"}
+
+   ]
+
+
+
+  } 
+  
+}
