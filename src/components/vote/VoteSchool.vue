@@ -94,8 +94,8 @@
 
       <div class="search">
          
-         <input type="text" v-model="searchVal" placeholder="请输入你要投票选手的编号或者名字" >
-         <span>搜索</span>
+         <input type="text" v-model.trim="searchVal" placeholder="请输入你要投票选手的编号或者名字" >
+         <span @click="searchBtn">搜索</span>
 
       </div>
 
@@ -135,6 +135,23 @@ export default {
   },
   components: {
     
+  },
+
+  methods:{
+
+    searchBtn(){
+
+      if(this.searchVal!=""){
+
+         this.$router.push({ name: 'searchResult',query: { searchVal: this.searchVal }});
+      }else{
+        alert(1)
+      } 
+      
+       
+
+    }
+
   },
   
   mounted:function(){

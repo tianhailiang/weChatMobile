@@ -60,7 +60,7 @@
      }
 
 .vote_school_figure div{
-  box-sizing: border-box;
+   box-sizing: border-box;
     padding-left: 10px;
     margin-top: 10px;
 }
@@ -85,6 +85,13 @@
   background:#6b3906;
   border-radius: 10px;
  }
+
+ .fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
 
 
 </style>
@@ -123,7 +130,7 @@
                         </div>  
 
                         <div class="vote_div">
-                            <span class="vote_btn" @click.stop="votoBtn" >投TA一票</span>
+                            <span class="vote_btn" @click.stop="voteBtn" >投TA一票</span>
                         </div> 
 
                      </figcaption> 
@@ -136,17 +143,18 @@
      </div>
 
 
+  <transition name="fade" >
 
-  <div class="js_dialog" id="iosDialog2"  v-show="dialogVisble">
-            <div class="weui-mask"></div>
-            <div class="weui-dialog">
-                <div class="weui-dialog__bd">您的钻石已经没有了，快去充值吧</div>
-                <div class="weui-dialog__ft">
-                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+      <div class="js_dialog" id="iosDialog2"  v-show="dialogVisble">
+                <div class="weui-mask"></div>
+                <div class="weui-dialog">
+                    <div class="weui-dialog__bd">您的钻石已经没有了，快去充值吧</div>
+                    <div class="weui-dialog__ft">
+                        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" @click="dialogVisble=false">知道了</a>
+                    </div>
                 </div>
-            </div>
-  </div>
-
+      </div>
+ </transition>
 	
 
 </div>
@@ -163,20 +171,31 @@ export default {
     return {
      votePicture:'', 
      contestantList:[],
-     dialogVisble:false
+     dialogVisble:false,
+     balance:0
     }
   },
   components: {
 
-    voteBtn(){
-
-    }
     
   },
 
   methods:{
 
+    voteBtn(){
 
+      if(this.balance){
+
+
+      }else{
+
+        this.$set(this,'dialogVisble',true);
+
+      }
+
+     
+    }
+    
 
   },
   mounted:function(){
@@ -194,7 +213,9 @@ export default {
                    console.log(result)
                    this.$set(this,"votePicture",result.data.votePicture);
                    this.$set(this,"contestantList",result.data.contestantList);
-
+                   
+                   this.$set(this,"balance",result.data.concern.balance); 
+                    
                   
                 }else{
 
