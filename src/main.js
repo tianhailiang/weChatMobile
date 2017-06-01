@@ -2,14 +2,21 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import VueRouter from 'vue-router'
+import routes from './router/index'
 import VueLazyload from 'vue-lazyload' //基于vue的懒加载
 
 import videoCss from 'video.js/dist/video-js.min.css'
-require('video.js');
-Vue.use(videoCss);
-
 import setWechatTitle from './utils/setWechatTitle.js' //基于微信单页面的标题
+Vue.use(VueRouter);
+
+Vue.use(videoCss);
+require('video.js');
+
+
+const router = new VueRouter({
+  routes: routes
+})
 
 import weui from 'weui'; //引入weui css 核心库
 
@@ -24,16 +31,14 @@ Vue.use(VueLazyload, {
 //控制微信页面的标题
 router.beforeEach((to, from, next) => {
 
-   setWechatTitle(to.meta.title);
+  setWechatTitle(to.meta.title);
 
   next()
 })
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
-})
+const app = new Vue({
+  router: router,
+  render: h => h(App)
+}).$mount('#app')
+
