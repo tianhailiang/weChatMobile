@@ -5,6 +5,10 @@ import App from './App'
 import router from './router'
 import VueLazyload from 'vue-lazyload' //基于vue的懒加载
 
+import videoCss from 'video.js/dist/video-js.min.css'
+require('video.js');
+Vue.use(videoCss);
+
 import setWechatTitle from './utils/setWechatTitle.js' //基于微信单页面的标题
 
 import weui from 'weui'; //引入weui css 核心库
@@ -24,9 +28,6 @@ router.beforeEach((to, from, next) => {
 
   next()
 })
-
-
-
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
