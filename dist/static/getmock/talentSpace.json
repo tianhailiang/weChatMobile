@@ -1,0 +1,60 @@
+{
+  "code": 0,
+  "message": "用户登录成功。",
+  
+  "data":{
+
+    
+      "contestantPicture":"http://localhost:7777/static/mockImg/p1.jpg",
+      "contestantName":"thl",
+      "contestantNumber":"001",
+      "ticket":"100",
+      "features":"我是张小白，我的特征是爱跳舞和唱歌",
+      "declaration":"我的参赛宣言",
+   "albumList":[
+       {"picTure":"http://localhost:7777/static/mockImg/p1.jpg"},
+       {"picTure":"http://localhost:7777/static/mockImg/p2.jpg"},
+       {"picTure":"http://localhost:7777/static/mockImg/p3.jpg"},
+       {"picTure":"http://localhost:7777/static/mockImg/p4.jpg"},
+       {"picTure":"http://localhost:7777/static/mockImg/p1.jpg"},
+       {"picTure":"http://localhost:7777/static/mockImg/p2.jpg"}
+
+   ],
+
+   "videoList":[
+
+      {
+        "videoPicture":"http://localhost:7777/static/mockImg/p1.jpg",
+        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4","type":"mp4"
+      },
+      {
+        "videoPicture":"http://localhost:7777/static/mockImg/p2.jpg",
+        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        "type":"mp4"
+      },
+      {
+        "videoPicture":"http://localhost:7777/static/mockImg/p3.jpg",
+        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        "type":"mp4"
+      },
+      {
+        "videoPicture":"http://localhost:7777/static/mockImg/p4.jpg",
+        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        "type":"mp4"
+      },
+      {
+        "videoPicture":"http://localhost:7777/static/mockImg/p1.jpg",
+        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        "type":"mp4"
+      },
+      {
+        "videoPicture":"http://localhost:7777/static/mockImg/p2.jpg",
+        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        "type":"mp4"
+      }
+
+   ]
+
+  } 
+  
+}
