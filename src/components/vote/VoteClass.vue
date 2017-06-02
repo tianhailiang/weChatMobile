@@ -3,7 +3,8 @@
 
  .vote-top{
       width:100%;
-      height:200px;
+      height:120px;
+      margin-bottom: 25px;
     }
 
     .vote-top img{
@@ -37,15 +38,18 @@
     
 
      .vote_school_img{
-       height:150px;
+       height:185px;
        width:100%;
      }
 
      .vote_school_figure figcaption{
-      height:40px;
+       height:77px;
       text-align: center;
-      line-height: 40px;
-      color:#6a3906;
+     
+      color:#646464;
+      box-sizing: border-box;
+      padding-top: 20px;
+      font-size:10px;
      }
 
 </style>
@@ -55,7 +59,7 @@
  <div>
 
     <div class="vote-top">
-        <img :src="votePicture" />
+        <img src="../warmUp/img/ucanCup_01.jpg" />
       </div>
 
 
@@ -87,7 +91,7 @@ export default {
   name: 'VoteClass',
   data () {
     return {
-     votePicture:'', 
+   
      classList:[]
     }
   },
@@ -107,7 +111,6 @@ export default {
               if(result.code==0){
 
                  console.log(result)
-                 this.$set(this,"votePicture",result.data.votePicture);
                  this.$set(this,"classList",result.data.classList);
 
                 

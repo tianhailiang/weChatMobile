@@ -137,7 +137,7 @@ export default {
   name: 'VoteSchool',
   data () {
     return {
-     votePicture:'', 
+    
      searchVal:'',
      schoolList:[]
     }
@@ -175,7 +175,7 @@ export default {
               if(result.code==0){
 
                  console.log(result)
-                 this.$set(this,"votePicture",result.data.votePicture);
+               
                  this.$set(this,"schoolList",result.data.schoolList);
 
                 

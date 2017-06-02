@@ -3,7 +3,14 @@
   "message": "用户登录成功。",
   
   "data":{
-   
+
+    
+      "contestantPicture":"http://localhost:7777/static/mockImg/p1.jpg",
+      "contestantName":"thl",
+      "contestantNumber":"001",
+      "ticket":"100",
+      "features":"我是张小白，我的特征是爱跳舞和唱歌",
+      "declaration":"我的参赛宣言",
    "albumList":[
        {"picTure":"http://localhost:7777/static/mockImg/p1.jpg"},
        {"picTure":"http://localhost:7777/static/mockImg/p2.jpg"},
