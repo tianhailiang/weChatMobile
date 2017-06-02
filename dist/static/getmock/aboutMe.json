@@ -5,23 +5,131 @@
     "aboutUcan":{
       "featuredCourses":[
         {
-          "coursePicture":"http://localhost:7777/static/mockImg/p1.jpg",
+          "coursePicture":"./static/mockImg/p1.jpg",
           "courseName":"趣学英语",
           "courseId":"1"
         },
         {
-          "coursePicture":"http://localhost:7777/static/mockImg/p1.jpg",
+          "coursePicture":"./static/mockImg/p1.jpg",
           "courseName":"思学通数学",
           "courseId":"1"
         },
         {
-          "coursePicture":"http://localhost:7777/static/mockImg/p1.jpg",
+          "coursePicture":"./static/mockImg/p1.jpg",
           "courseName":"趣学英语",
           "courseId":"1"
         },
         {
-          "coursePicture":"http://localhost:7777/static/mockImg/p1.jpg",
+          "coursePicture":"./static/mockImg/p1.jpg",
           "courseName":"思学通数学",
+          "courseId":"1"
+        }
+      ]
+    },
+    "partnerSchool":{
+      "partnerSchools":[
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"趣学英语",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"思学通数学",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"思学通数学",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"思学通数学",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"思学通数学",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"思学通数学",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"思学通数学",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"思学通数学",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"趣学英语",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"思学通数学",
+          "courseId":"1"
+        }
+      ]
+    },
+    "sponsor":{
+      "sponsors":[
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"赞助商1",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"赞助商1",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"赞助商1",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"赞助商1",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"赞助商1",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"赞助商1",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"赞助商1",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"赞助商1",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"赞助商1",
+          "courseId":"1"
+        },
+        {
+          "coursePicture":"./static/mockImg/p1.jpg",
+          "courseName":"赞助商1",
           "courseId":"1"
         }
       ]
