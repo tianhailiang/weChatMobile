@@ -11,13 +11,14 @@ import Contestant from '@/components/vote/Contestant' //投票选手列表模块
 import TalentSpace from '@/components/vote/TalentSpace' //我的才艺空间模块
 import SearchResult from '@/components/vote/SearchResult' //搜索结果模块
 
+import personalCenter from '@/components/personalCenter/personalCenter' //个人中心
 
 import Recharge from  '@/components/Recharge/Recharge' //充值页面
 import ShowRecharge from '@/components/Recharge/ShowRecharge' //充值页面
 
 import  aboutUcan from   '@/components/aboutMe/aboutUcan' //关于优看
-
-
+import  partnerSchool from   '@/components/partnerSchool/partnerSchool' //合作学校
+import  sponsor from   '@/components/sponsor/sponsor' //赞助商
 Vue.use(Router)
 
 export default new Router({
@@ -36,12 +37,17 @@ export default new Router({
       meta:{title: "优看杯大赛"}
     },
     {
+      path:'/personalCenter',
+      name:'personalCenter',
+      component:personalCenter,
+      meta:{title: "个人中心"}
+    },
+    {
       path: '/voteSchool',
       name: 'voteSchool',
       component: VoteSchool,
       meta: {title: "投票"}
     },
-
     {
       path: '/voteClass/:id',
       name: 'voteClass',
@@ -55,7 +61,7 @@ export default new Router({
       component: Contestant,
       meta: {title: "投票"}
     },
-    
+
     {
       path: '/searchResult',
       name: 'searchResult',
@@ -86,9 +92,19 @@ export default new Router({
       name:'aboutUcan',
       component:aboutUcan,
       meta:{title: "关于优看"}
+    },
+    {
+      path: '/partnerSchool',
+      name: 'partnerSchool',
+      component: partnerSchool,
+      meta:{title: "合作学校"}
+    },
+    {
+      path: '/sponsor',
+      name: 'sponsor',
+      component: sponsor,
+      meta:{title: "赞助商"}
     }
-
-  ]
-
+]
 
 })
