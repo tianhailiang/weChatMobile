@@ -2,7 +2,7 @@
 
  .vote-top{
       width:100%;
-      height:200px;
+      height:120px;
     }
 
 .vote-top img{
@@ -13,35 +13,41 @@
   .search{
       width:100%;
       display: flex;
-      height:50px;
+     margin-top:25px;
+     margin-bottom: 25px;
       align-items: center;
       padding:0 20px;
       box-sizing: border-box;
     }
 
     .search input{
-      height:30px;
+      height:40px;
       border:1px solid #dcdcdc;
       flex:1;
-      border-radius: 10px;
-      margin-right: 10px;
+     
+      margin-right: 5px;
       padding-left: 5px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+
     }
 
      .search span{
       display: block;
       width:50px;
-      height:30px;
-      background:#6b3906;
-      color:#fff;
+      height:40px;
+      background:#fee100;
+      color:#663b00;
       text-align:center;
-      line-height: 30px;
-      border-radius: 5px;
+      line-height: 40px;
+     
+    
 
      }
 
      .search span:active{
-      background:rgba(107,57,6,0.7);
+       background:rgba(254,225,0,0.7);
+
      }
 
 
@@ -70,15 +76,18 @@
     
 
      .vote_school_img{
-       height:150px;
+       height:185px;
        width:100%;
      }
 
      .vote_school_figure figcaption{
-      height:40px;
+      height:77px;
       text-align: center;
-      line-height: 40px;
-      color:#6a3906;
+     
+      color:#646464;
+      box-sizing: border-box;
+      padding-top: 20px;
+      font-size:10px;
      }
 
 
@@ -89,7 +98,7 @@
   <div>
 
       <div class="vote-top">
-        <img :src="votePicture" />
+        <img src="../warmUp/img/ucanCup_01.jpg" />
       </div>
 
       <div class="search">
