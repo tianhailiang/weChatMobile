@@ -7,7 +7,6 @@ import VueLazyload from 'vue-lazyload' //基于vue的懒加载
 
 import videoCss from 'video.js/dist/video-js.min.css'
 require('video.js');
-Vue.use(videoCss);
 
 import setWechatTitle from './utils/setWechatTitle.js' //基于微信单页面的标题
 
