@@ -1,0 +1,39 @@
+{
+  "code": 0,
+  "message": "用户登录成功。",
+  
+  "data":{
+    "votePicture":"http://localhost:7777/static/mockImg/p1.jpg",
+   "classList":[
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"},
+       {"classPicture":"http://localhost:7777/static/mockImg/p1.jpg","className":"西贡大一班","classId":"1"}
+
+   ]
+
+
+
+  } 
+  
+}
