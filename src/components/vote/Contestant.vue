@@ -225,6 +225,9 @@
 
 import axios from 'axios';
 
+import wx from 'weixin-js-sdk';
+
+// console.log(wx)
 export default {
   name: 'VoteClass',
   data () {
@@ -336,6 +339,48 @@ export default {
             .catch(function (error) {
                 console.log(error);
             });
+
+         //获取微信时间戳和签名   
+         console.log(wx)
+
+         axios.get("http://m.wishlist1314.com/wishlist_mobile/wechat/getConfig",{
+
+         }).then(function(response){
+
+                wx.config({
+                  debug:true,
+                  appId: "wx0155c458e601b602",
+                  timestamp: response.timestamp,
+                  nonceStr: response.nonceStr,
+                  signature: response.signature,
+                  jsApiList:[ 'onMenuShareTimeline']
+               });
+
+                wx.ready(function() {
+   
+
+                      wx.onMenuShareTimeline({
+                            title: '海盗', // 分享标题
+                            link: 'www.baidu.com', // 分享链接
+                            imgUrl: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1462881185&di=475c7fc9a669c537d2caf6a1032e1f79&src=http://img5.duitang.com/uploads/item/201202/25/20120225171212_d4GAF.thumb.700_0.jpg', // 分享图标
+                            success: function () { 
+                                // 用户确认分享后执行的回调函数
+                                alert("分享成功")
+                            },
+                            cancel: function () { 
+                                // 用户取消分享后执行的回调函数
+                                alert("不分享，你怎么得到钱")
+                            }
+                        });
+        
+                    //ready
+                 }); 
+
+         }.bind(this))
+         .catch(function(error){
+           
+           console.log(error)
+         });
 
 
   }
