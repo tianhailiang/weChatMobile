@@ -212,7 +212,7 @@
 
       if(this.balance){
 
-         axios.get("http://localhost:7777/static/getmock/voteSuccess.json",{
+         axios.get("./static/getmock/voteSuccess.json",{
 
                })
               .then(function (response) {
@@ -276,7 +276,7 @@
   mounted:function(){
 
 
-      axios.get("http://localhost:7777/static/getmock/searchResult.json",{
+      axios.get("./static/getmock/searchResult.json",{
              contestantId:this.$route.query.searchVal
              
            })

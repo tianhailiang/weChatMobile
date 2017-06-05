@@ -248,7 +248,7 @@ export default {
       
       if(this.balance){
 
-          axios.get("http://localhost:7777/static/getmock/voteSuccess.json",{
+          axios.get("./static/getmock/voteSuccess.json",{
 
                })
               .then(function (response) {
@@ -311,7 +311,7 @@ export default {
   },
   mounted:function(){
 
-       axios.get("http://localhost:7777/static/getmock/contestant.json",{
+       axios.get("./static/getmock/contestant.json",{
 
              })
             .then(function (response) {
