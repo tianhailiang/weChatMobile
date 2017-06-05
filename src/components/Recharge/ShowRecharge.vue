@@ -80,6 +80,7 @@
       numCount
     },
     created(){
+        console.log('跳转到这一页了')
         this.rechargeNum = this.$route.query.rechargeNum
     },
     methods: {

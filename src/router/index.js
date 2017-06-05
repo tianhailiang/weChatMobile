@@ -37,7 +37,7 @@ export default new Router({
       meta:{title: "优看杯大赛"}
     },
     {
-      path:'/personalCenter',
+      path:'/personalCenter/:id',
       name:'personalCenter',
       component:personalCenter,
       meta:{title: "个人中心"}
@@ -76,13 +76,13 @@ export default new Router({
       meta: {title: "我的才艺空间"}
     },
     {
-      path: '/Recharge',
+      path: '/Recharge/:id',
       name: 'Recharge',
       component: Recharge,
       meta: {title: "优看杯大赛充值"}
     },
     {
-      path:'/Recharge/ShowRecharge',
+      path:'/ShowRecharge',
       name:'ShowRecharge',
       component:ShowRecharge,
       meta:{title: "优看杯大赛充值"}
