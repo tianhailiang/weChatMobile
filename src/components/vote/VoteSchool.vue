@@ -114,7 +114,7 @@
        
 
             <figure class="vote_school_figure">
-                     <img v-lazy="item.schoolPicture" class="vote_school_img" />
+                     <img v-lazy="item.schoolLogo.imageVisitUrl" class="vote_school_img" />
                      
                      <figcaption>{{item.schoolName}}</figcaption> 
             </figure>
@@ -165,10 +165,14 @@ export default {
   
   mounted:function(){
 
-      axios.get("./static/getmock/voteSchool.json",{
+      //./static/getmock/voteSchool.json
+      //http://192.168.3.140:8080/ucanchat/view/activity/getSchoolList
+
+      axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getSchoolList",{
 
            })
           .then(function (response) {
+            console.log(response)
 
             var result =response.data;
 
@@ -181,7 +185,7 @@ export default {
                 
               }else{
 
-                console.log(result.msg)
+                console.log(result.message)
               } 
              
           }.bind(this))

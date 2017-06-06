@@ -251,8 +251,12 @@ export default {
       
       if(this.balance){
 
-          axios.get("./static/getmock/voteSuccess.json",{
-
+          //./static/getmock/voteSuccess.json
+          //http://192.168.3.140:8080/ucanchat/view/activity/getStudentList
+          axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getStudentList",{
+                  params:{
+                    id:this.$route.params.id
+                  }
                })
               .then(function (response) {
 
