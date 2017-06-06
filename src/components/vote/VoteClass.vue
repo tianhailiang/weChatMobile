@@ -64,11 +64,11 @@
 
 
      <div class="vote_school_ul" >
-      <router-link   tag="li" v-for="item in classList" :key="item.classId" :to="{name:'contestant',params: { id: item.classId}}">
+      <router-link   tag="li" v-for="item in classList" :key="item.classesId" :to="{name:'contestant',params: { id: item.classesId}}">
        
 
             <figure class="vote_school_figure">
-                     <img  v-lazy="item.classPicture" class="vote_school_img" lazy="loading"/>
+                     <img  v-lazy="classPicture" class="vote_school_img" lazy="loading"/>
                      
                      <figcaption>{{item.className}}</figcaption> 
             </figure> 
@@ -92,7 +92,8 @@ export default {
   data () {
     return {
    
-     classList:[]
+     classList:[],
+     classPicture:"http://localhost:7777/static/images/course.jpg"
     }
   },
   components: {
@@ -100,18 +101,24 @@ export default {
   },
   
   mounted:function(){
-
-      axios.get("./static/getmock/voteClass.json",{
+      //./static/getmock/voteClass.json
+      //http://192.168.3.140:8080/ucanchat/view/activity/getSchoolClassesList?id=1
+      console.log(this.$route.params.id)
+      axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getSchoolClassesList",{
+            params:{
+              id:this.$route.params.id
+            }
 
            })
           .then(function (response) {
 
             var result =response.data;
 
+              console.log(result)
               if(result.code==0){
 
-                 console.log(result)
-                 this.$set(this,"classList",result.data.classList);
+                
+                 this.$set(this,"classList",result.data.calssesList);
 
                 
               }else{

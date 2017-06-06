@@ -41,6 +41,7 @@
 
 .diamonds{
   float:right;
+  
  }
 
  .vote_div{

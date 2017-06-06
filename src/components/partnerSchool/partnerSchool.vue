@@ -28,7 +28,7 @@
   <div>
     <div class="box">
       <ul >
-          <router-link tag="li"  v-for="item in schoolList" :key="item.schoolId" :to="{name:'everyPartnerSchool',params: { id: item.schoolId}}">
+          <router-link tag="li"  v-for="item in schoolList" :key="item.schoolId" :to="{name:'everyPartNerSchool',params: { id: item.schoolId}}">
             <figure class="inBox_img">
               <img v-lazy="item.schoolPicture"  alt="" width="100%" height="140px">
             </figure>

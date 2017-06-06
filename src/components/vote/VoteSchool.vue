@@ -113,9 +113,15 @@
         <router-link   tag="li" v-for="item in schoolList" :key="item.schoolId" :to="{name:'voteClass',params: { id: item.schoolId}}">
 
             <figure class="vote_school_figure">
+<<<<<<< HEAD
                      <img v-lazy="item.schoolPicture" class="vote_school_img" />
 
                      <figcaption>{{item.schoolName}}</figcaption>
+=======
+                     <img v-lazy="item.schoolLogo.imageVisitUrl" class="vote_school_img" />
+
+                     <figcaption>{{item.schoolName}}</figcaption>
+>>>>>>> 5838e2ee92a28047eb9d51ddad54689d13c2d314
             </figure>
 
         </router-link>
@@ -164,10 +170,14 @@ export default {
 
   mounted:function(){
 
-      axios.get("./static/getmock/voteSchool.json",{
+      //./static/getmock/voteSchool.json
+      //http://192.168.3.140:8080/ucanchat/view/activity/getSchoolList
+
+      axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getSchoolList",{
 
            })
           .then(function (response) {
+            console.log(response)
 
             var result =response.data;
 
@@ -180,9 +190,15 @@ export default {
 
               }else{
 
+<<<<<<< HEAD
                 console.log(result.msg)
               }
 
+=======
+                console.log(result.message)
+              }
+
+>>>>>>> 5838e2ee92a28047eb9d51ddad54689d13c2d314
           }.bind(this))
           .catch(function (error) {
               console.log(error);
