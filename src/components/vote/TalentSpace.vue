@@ -226,7 +226,7 @@ export default {
 
 	mounted:function(){
        
-        axios.get("http://localhost:7777/static/getmock/talentSpace.json",{
+        axios.get("./static/getmock/talentSpace.json",{
 
              })
             .then(function (response) {

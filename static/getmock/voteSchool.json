@@ -4,24 +4,24 @@
   
   "data":{
 
-   "votePicture":"http://localhost:7777/static/mockImg/p1.jpg",
+   "votePicture":"./static/mockImg/p1.jpg",
    "schoolList":[
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
-       {"schoolPicture":"http://localhost:7777/static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"}
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"},
+       {"schoolPicture":"./static/mockImg/p1.jpg","schoolName":"贵阳市西贡幼儿园","schoolId":"1"}
    ]
 
 

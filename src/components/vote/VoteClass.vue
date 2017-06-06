@@ -101,7 +101,7 @@ export default {
   
   mounted:function(){
 
-      axios.get("http://localhost:7777/static/getmock/voteClass.json",{
+      axios.get("./static/getmock/voteClass.json",{
 
            })
           .then(function (response) {

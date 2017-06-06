@@ -4,7 +4,7 @@
   
   "data":{
    
-       "contestantPicture":"http://localhost:7777/static/mockImg/p1.jpg",
+       "contestantPicture":"./static/mockImg/p1.jpg",
        "contestantNumber":"002",
        "ticket":"220",
        "contestantName":"thl",

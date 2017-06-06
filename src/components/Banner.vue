@@ -71,7 +71,7 @@ export default {
    	    var that = this;
        // 后台接口 不允许跨源 跨域http://ucan.bin-go.cc/api/login
       
-	       axios.get("http://localhost:7777/static/getmock/activeBanner.json",{
+	       axios.get("./static/getmock/activeBanner.json",{
 	         
 	       })
 	      .then(function (response) {
