@@ -113,15 +113,9 @@
         <router-link   tag="li" v-for="item in schoolList" :key="item.schoolId" :to="{name:'voteClass',params: { id: item.schoolId}}">
 
             <figure class="vote_school_figure">
-<<<<<<< HEAD
-                     <img v-lazy="item.schoolPicture" class="vote_school_img" />
-
-                     <figcaption>{{item.schoolName}}</figcaption>
-=======
                      <img v-lazy="item.schoolLogo.imageVisitUrl" class="vote_school_img" />
-
                      <figcaption>{{item.schoolName}}</figcaption>
->>>>>>> 5838e2ee92a28047eb9d51ddad54689d13c2d314
+
             </figure>
 
         </router-link>
@@ -187,18 +181,10 @@ export default {
 
                  this.$set(this,"schoolList",result.data.schoolList);
 
-
               }else{
-
-<<<<<<< HEAD
-                console.log(result.msg)
-              }
-
-=======
                 console.log(result.message)
               }
 
->>>>>>> 5838e2ee92a28047eb9d51ddad54689d13c2d314
           }.bind(this))
           .catch(function (error) {
               console.log(error);
