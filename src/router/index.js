@@ -12,12 +12,17 @@ import TalentSpace from '@/components/vote/TalentSpace' //我的才艺空间模�
 import SearchResult from '@/components/vote/SearchResult' //搜索结果模块
 
 import personalCenter from '@/components/personalCenter/personalCenter' //个人中心
+import loginOn from '@/components/personalCenter/loginOn' //个人中心参赛者登录页面
+
 
 import Recharge from  '@/components/Recharge/Recharge' //充值页面
 import ShowRecharge from '@/components/Recharge/ShowRecharge' //充值页面
 
 import  aboutUcan from   '@/components/aboutMe/aboutUcan' //关于优看
+
 import  partnerSchool from   '@/components/partnerSchool/partnerSchool' //合作学校
+import  everyPartnerSchool from   '@/components/partnerSchool/everyPartnerSchool'  //合作学校详情页
+
 import  sponsor from   '@/components/sponsor/sponsor' //赞助商
 Vue.use(Router)
 
@@ -37,10 +42,16 @@ export default new Router({
       meta:{title: "优看杯大赛"}
     },
     {
-      path:'/personalCenter/:id',
+      path:'/personalCenter',
       name:'personalCenter',
       component:personalCenter,
       meta:{title: "个人中心"}
+    },
+    {
+      path:'/loginOn',
+      name:'loginOn',
+      component:loginOn,
+      meta:{title: "参赛者登录"}
     },
     {
       path: '/voteSchool',
@@ -97,6 +108,12 @@ export default new Router({
       path: '/partnerSchool',
       name: 'partnerSchool',
       component: partnerSchool,
+      meta:{title: "合作学校"}
+    },
+    {
+      path: '/partnerSchool/everyPartnerSchool/:id',
+      name: 'everyPartnerSchool',
+      component: everyPartnerSchool,
       meta:{title: "合作学校"}
     },
     {

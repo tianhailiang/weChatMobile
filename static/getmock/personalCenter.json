@@ -1,0 +1,10 @@
+{
+  "code": 0,
+  "message": "用户登录成功。",
+  "data": {
+    "balance": 20,
+    "ranking": 12,
+    "rankings": 20,
+    "myPoll": 30
+  }
+}

@@ -27,18 +27,17 @@
 <template>
   <div>
     <div class="box">
-
-        <ul >
-          <li v-for="item in partnerSchools">
-            <div class="inBox_img">
-              <img :src="item.coursePicture" alt="" width="100%" height="140px">
-            </div>
+      <ul >
+          <router-link tag="li"  v-for="item in schoolList" :key="item.schoolId" :to="{name:'everyPartnerSchool',params: { id: item.schoolId}}">
+            <figure class="inBox_img">
+              <img v-lazy="item.schoolPicture"  alt="" width="100%" height="140px">
+            </figure>
             <div class="inBox_text">
                 <span>
-                  {{item.courseName}}
+                  {{item.schoolName}}
                 </span>
             </div>
-          </li>
+          </router-link>
         </ul>
       </div>
 
@@ -52,20 +51,22 @@
     name: 'partnerSchool',
     data () {
       return {
-        partnerSchools:[]
+        schoolList:[]
       }
     },
-    components: {},
+    components: {
+    },
     mounted: function () {
+//      http://192.168.3.140:8080/ucanchat/view/activity/getSchoolList
 
-      axios.get("./static/getmock/aboutMe.json", {})
+      axios.get("./static/getmock/voteSchool.json", {})
         .then(function (response) {
 
           var result = response.data;
 
           if (result.code == 0) {
             console.log(result)
-            this.$set(this, "partnerSchools", result.data.partnerSchool.partnerSchools);
+            this.$set(this, "schoolList", result.data.schoolList);
           } else {
             console.log(result.msg);
           }

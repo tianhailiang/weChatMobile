@@ -1,22 +1,26 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style scoped>
-  .weui-uploader__bd{
+  .weui-uploader__bd {
     padding-left: 10px;
   }
-.weui-uploader__file{
-  border: 1px solid #D9D9D9;
-}
-  .weui-gallery__img{
-      display: flex;
-      justify-content: center;
-      align-items: center;
+
+  .weui-uploader__file {
+    border: 1px solid #D9D9D9;
   }
-  .showGallery-enter-active,.showGallery-leave-active{
+
+  .weui-gallery__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .showGallery-enter-active, .showGallery-leave-active {
     transition: all 0.5s ease;
     opacity: 1;
   }
-  .showGallery-enter, .showGallery-leave-active{
+
+  .showGallery-enter, .showGallery-leave-active {
     opacity: 0;
   }
 </style>
@@ -27,11 +31,11 @@
     <div class="weui-cell">
       <div class="weui-cell__bd">
         <div class="weui-uploader">
-          <div class="weui-cell__ft weui-uploader__info">0/2</div>
+          <div class="weui-cell__ft weui-uploader__info">0 /{{allFileNum}}</div>
           <div class="weui-uploader__bd">
             <!--v-for="(item,idnex)in files_list"-->
-            <ul class="weui-uploader__files" @click="uploaderShowFn" id="uploaderFiles" >
-              <li class="weui-uploader__file" >
+            <ul class="weui-uploader__files" @click="uploaderShowFn" id="uploaderFiles">
+              <li class="weui-uploader__file">
                 <img src="./img/loading.gif" width="100%" alt="">
               </li>
               <!--<li class="weui-uploader__file" style="background-image:url(./img/loading.gif)"></li>-->
@@ -47,46 +51,13 @@
               <!--</li>-->
             </ul>
             <div class="weui-uploader__input-box" @click="picUploadFn">
-              <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+              <!--<input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">-->
             </div>
           </div>
 
         </div>
       </div>
     </div>
-
-
-    <!--<script type="text/javascript" class="uploader js_show">-->
-    <!--$(function(){-->
-    <!--var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',-->
-    <!--$gallery = $("#gallery"), $galleryImg = $("#galleryImg"),-->
-    <!--$uploaderInput = $("#uploaderInput"),-->
-    <!--$uploaderFiles = $("#uploaderFiles")-->
-    <!--;-->
-
-    <!--$uploaderInput.on("change", function(e){-->
-    <!--var src, url = window.URL || window.webkitURL || window.mozURL, files = e.target.files;-->
-    <!--for (var i = 0, len = files.length; i < len; ++i) {-->
-    <!--var file = files[i];-->
-
-    <!--if (url) {-->
-    <!--src = url.createObjectURL(file);-->
-    <!--} else {-->
-    <!--src = e.target.result;-->
-    <!--}-->
-
-    <!--$uploaderFiles.append($(tmpl.replace('#url#', src)));-->
-    <!--}-->
-    <!--});-->
-    <!--$uploaderFiles.on("click", "li", function(){-->
-    <!--$galleryImg.attr("style", this.getAttribute("style"));-->
-    <!--$gallery.fadeIn(100);-->
-    <!--});-->
-    <!--$gallery.on("click", function(){-->
-    <!--$gallery.fadeOut(100);-->
-    <!--});-->
-    <!--});</script>-->
-
     <transition name="showGallery">
       <div class="weui-gallery" id="gallery" style="display: block" v-show="showGallery">
       <span class="weui-gallery__img" id="galleryImg" @click="closeGallery">
@@ -99,47 +70,44 @@
         </div>
       </div>
     </transition>
-
   </div>
-
-
-
-
-
-
-
 
 </template>
 
 <script>
-
+  import axios from 'axios';
+  import wx from 'weixin-js-sdk';
 
   export default {
     data () {
       return {
-          showGallery:false,
-          files_list:[]
+        showGallery: false,
+        files_list: [],
+        allFileNum:9
       }
     },
     components: {},
-    methods:{
+    methods: {
       uploaderShowFn(event){
-          if (event.target.tagName =='IMG'){
-            this.showGallery = true;
-            this.$emit('showGallery', this.showGallery);
-
-          }
-
+        if (event.target.tagName == 'IMG') {
+          this.showGallery = true;
+//          this.$emit('showGallery', this.showGallery);
+        }
       },
       closeGallery(){
         this.showGallery = false;
       },
       delImgFn(){
         this.showGallery = false;
-        this.$emit('showGallery', this.showGallery);
+//        this.$emit('showGallery', this.showGallery);
       },
       picUploadFn(event){
-          console.log('picUploadFn');
+        console.log('picUploadFn');
+
+
+
+
+
         var parent_obj = event.target.parent();// ul
         console.log(parent_obj);
         var img_length = parent_obj.find('li').length;
@@ -166,7 +134,7 @@
           }
         });
       }
-  }
+    }
 
   }
 </script>

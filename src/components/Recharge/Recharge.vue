@@ -140,7 +140,7 @@
               </div>
             </div>
             <div class="weui-actionsheet__action">
-              <div class="weui-actionsheet__cell" id="iosActionsheetCancel">
+              <div class="weui-actionsheet__cell" id="iosActionsheetCancel" @click="goPayFn">
                 <div class="weui-btn-area">
                   <a class="weui-btn"
                      @click="toShowRecharge">确认支付{{rechargeNum}}元</a>
@@ -159,6 +159,7 @@
 <script>
   import axios from 'axios';
   import numCount from  '../tools/numCount';
+  import wx from 'weixin-js-sdk';
 
   export default{
     name: 'Recharge',
@@ -212,6 +213,46 @@
       },
       toCloseConfirm(){
         this.toShowConfirm = false;
+      },
+      goPayFn(){
+          console.log('点击去支付');
+
+        //获取微信时间戳和签名
+        console.log('wx'+wx);
+        axios.get("http://m.wishlist1314.com/wishlist_mobile/wechat/getConfig",{
+
+        }).then(function(response){
+          wx.config({
+            debug:true,
+            appId: "wx0155c458e601b602",
+            timestamp: response.timestamp,
+            nonceStr: response.nonceStr,
+            signature: response.signature,
+            jsApiList:[ 'chooseWXPay']
+          });
+
+          wx.ready(function() {
+            //发起一个微信支付请求
+            wx.chooseWXPay({
+              timestamp: 0, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+              nonceStr: '', // 支付签名随机串，不长于 32 位
+              package: '', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+              signType: '', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+              paySign: '', // 支付签名
+              success: function (res) {
+                // 支付成功后的回调函数
+              }
+            });
+          });
+
+        }.bind(this))
+          .catch(function(error){
+
+            console.log(error)
+          });
+
+
+
       }
     }
   }
