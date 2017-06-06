@@ -112,6 +112,8 @@
 </template>
 
 <script>
+
+
   export default {
     data () {
       return {
@@ -137,9 +139,9 @@
         this.$emit('showGallery', this.showGallery);
       },
       picUploadFn(event){
+          console.log('picUploadFn');
         var parent_obj = event.target.parent();// ul
         console.log(parent_obj);
-
         var img_length = parent_obj.find('li').length;
         cosole.log(img_length);
         img_length--;

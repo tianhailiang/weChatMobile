@@ -162,18 +162,48 @@
         rankings: 15,
         myVotes: 20,
         balance: 20,
-        userId: ''
+        userId: '',
       }
     },
     created(){
-      console.log(this.$route.params.id);
+//      console.log(this.$route.params.id);
       this.userId = this.$route.params.id;
     },
     components: {
       'v-uploader': uploader,
       Recharge
     },
-    ready: function () {
+    mounted: function () {
+        console.log('执行ready')
+        let localStorage =window.localStorage;
+        if (localStorage){
+            let user =localStorage.getItem('user');
+            if (user){
+                this.user =JSON.parse(user);
+            }else {
+                axios.get('/api/initUser').then(res => {
+                    this.user =res.data
+                    localStorage.setItem('user',JSON.stringify(res.data))
+                },err =>{
+                    console.log('err',err);
+                    alert('初始化数据失败');
+                })
+            }
+          }else{
+          alert('不支持h5新特性');
+          }
+
+
+          axios.get('/api/token',{
+
+          }).then((res) => {
+            wx.config(res.data.jsConfig)
+          },(err)=>{
+            console.log('init jssdk fail:',err)
+          })
+
+
+
 //      this.$http.get({
 //        url: 'api/wx/tokenSignature',
 //        data: {
