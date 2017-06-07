@@ -102,9 +102,9 @@ export default {
   
   mounted:function(){
       //./static/getmock/voteClass.json
-      //http://192.168.3.140:8080/ucanchat/view/activity/getSchoolClassesList?id=1
+      //http://192.168.3.140:8080/ucanchat/view/activity/getSchoolClassesList
       
-      axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getSchoolClassesList?id=1",{
+      axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getSchoolClassesList",{
             params:{
               id:this.$route.params.id
             }

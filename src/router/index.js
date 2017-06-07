@@ -81,7 +81,7 @@ export default new Router({
     },
 
     {
-      path: '/talentSpace/:id',
+      path: '/talentSpace/:particiNum',
       name: 'talentSpace',
       component: TalentSpace,
       meta: {title: "我的才艺空间"}

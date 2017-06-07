@@ -146,21 +146,21 @@
 
      <div class="vote_school_ul" >
 
-        <router-link   tag="li" v-for="item in contestantList" :key="item.contestantId" :to="{name:'talentSpace',params: { id: item.contestantId}}">
+        <router-link   tag="li" v-for="item in contestantList" :key="item.participantId" :to="{name:'talentSpace',params: { particiNum: item.participantNum}}">
 
             <figure class="vote_school_figure">
-                     <img  v-lazy="item.contestantPicture" class="vote_school_img" lazy="loading"/>
+                     <img  v-lazy="item.participantHeadImage.imageVisitUrl" class="vote_school_img" lazy="loading"/>
 
                      <figcaption>
 
                         <div class="txt_div">
-                            <i>姓名：</i><span>{{item.contestantName}}</span>
+                            <i>姓名：</i><span>{{item.participantName}}</span>
 
                         </div>
 
                         <div class="txt_div">
 
-                          <i>编号：</i><span>{{item.number}}</span><i class="diamonds" ><b style="font-weight: normal;">{{item.ticket}}</b>票</i>
+                          <i>编号：</i><span>{{item.participantNum}}</span><i class="diamonds" ><b style="font-weight: normal;">{{item.participantVotes}}</b>票</i>
                         </div>
                         <div class="vote_div" @click.stop="voteBtn(item.contestantId,$event)">
                             投TA一票
@@ -252,8 +252,8 @@ export default {
       if(this.balance){
 
           //./static/getmock/voteSuccess.json
-          //http://192.168.3.140:8080/ucanchat/view/activity/getStudentList
-          axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getStudentList",{
+         
+          axios.get("./static/getmock/voteSuccess.json",{
                   params:{
                     id:this.$route.params.id
                   }
@@ -318,7 +318,12 @@ export default {
   },
   mounted:function(){
 
-       axios.get("./static/getmock/contestant.json",{
+       //./static/getmock/contestant.json
+      //http://192.168.3.140:8080/ucanchat/view/activity/getStudentList
+       axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getStudentList",{
+              params:{
+                id:this.$route.params.id
+              }
 
              })
             .then(function (response) {
@@ -328,9 +333,9 @@ export default {
 
                 if(result.code==0){
 
-                   // console.log(result)
-                   this.$set(this,"contestantList",result.data.contestantList);
-                   this.$set(this,"balance",result.data.balance);
+                   console.log(result)
+                   this.$set(this,"contestantList",result.data.particiList);
+                   // this.$set(this,"balance",result.data.balance);
 
                 }else{
 
@@ -345,7 +350,7 @@ export default {
             });
 
          //获取微信时间戳和签名
-         console.log(wx)
+         // console.log(wx)
          //http://m.wishlist1314.com/wishlist_mobile/wechat/getConfig
 
          axios.get("./static/getmock/wxConfig.json",{
@@ -353,7 +358,7 @@ export default {
          }).then(function(response){
                 
               var result =response.data;
-              console.log(result)
+              // console.log(result)
               if(result.code==0){
 
                   wx.config({
@@ -370,7 +375,7 @@ export default {
 
                       wx.onMenuShareTimeline({
                             title: '海盗', // 分享标题
-                            link: 'www.baidu.com', // 分享链接
+                            link: window.location.href, // 分享链接
                             imgUrl: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1462881185&di=475c7fc9a669c537d2caf6a1032e1f79&src=http://img5.duitang.com/uploads/item/201202/25/20120225171212_d4GAF.thumb.700_0.jpg', // 分享图标
                             success: function () {
                                 // 用户确认分享后执行的回调函数

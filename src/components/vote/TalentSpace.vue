@@ -133,11 +133,9 @@
                     <i>编号：</i><span>{{contestantNumber}}</span><i class="diamonds"><b style="font-weight: normal">{{ticket}}</b>票</i>
                </div>
                 <div class="txt_div">
-                    {{features}}
+                    {{particiIntroduce}}
                 </div>
-                 <div class="txt_div">
-                     {{declaration}}
-                 </div>
+                 
 
                  <div class="vote_div" @click.stop="voteBtn($event)">
                       投TA一票
@@ -156,7 +154,7 @@
 
              <li v-for="(item,index) in albumList" :key="index">
              	
-             	 <img v-lazy="item.picTure" />
+             	 <img v-lazy="item.imageVisitUrl" />
 
              </li>
 
@@ -174,8 +172,8 @@
              <li v-for="(item,index) in videoList" :key="index">
              	
              	  
-                 <video id="my-player" class="video-js" controls preload="auto" :poster="item.videoPicture" data-setup='{}' >
-                  <source   :src="item.videoSource" :type="'video/'+item.type">
+                 <video id="my-player" class="video-js" controls preload="auto" :poster="item.videoPicture" data-setup='{}' height="100%" width="100%">
+                  <source   :src="item.videoVisitUrl" :type="'video/'+item.videoType" >
                    
                     <p class="vjs-no-js">
                         您的浏览器还不支持此类型视频播放！请尝试升级浏览器！
@@ -213,8 +211,8 @@ export default {
            albumList:[],
            videoList:[],
            dialogVisble:false,
-           features:"",
-           declaration:''
+           particiIntroduce:""
+           
 
 		}
 	},
@@ -225,9 +223,14 @@ export default {
 	},
 
 	mounted:function(){
-       
-        axios.get("./static/getmock/talentSpace.json",{
 
+        //./static/getmock/talentSpace.json
+        //http://192.168.3.140:8080/ucanchat/view/activity/getStudentDetailInfo
+       console.log(this.$route.params.particiNum)
+        axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getStudentDetailInfo",{
+               params:{
+                 particiNum:this.$route.params.particiNum
+               }
              })
             .then(function (response) {
 
@@ -237,14 +240,14 @@ export default {
                 if(result.code==0){
 
                    console.log(result)
-                   this.$set(this,"contestantPicture",result.data.contestantPicture);
-                   this.$set(this,'contestantName',result.data.contestantName);
-                   this.$set(this,'contestantNumber',result.data.contestantNumber);
-                   this.$set(this,"ticket",result.data.ticket);
-                   this.$set(this,"features",result.data.features);
-                   this.$set(this,"declaration",result.data.declaration);
-                   this.$set(this,"albumList",result.data.albumList);
-                   this.$set(this,"videoList",result.data.videoList);
+                   this.$set(this,"contestantPicture",result.data.particiHeadImage.imageVisitUrl);
+                   this.$set(this,'contestantName',result.data.particiName);
+                  this.$set(this,'contestantNumber',result.data.particiNum);
+                   this.$set(this,"ticket",result.data.particiVotes);
+                   this.$set(this,"particiIntroduce",result.data.particiIntroduce);
+                   
+                this.$set(this,"albumList",result.data.uParticipantImages);
+                this.$set(this,"videoList",result.data.uParticipantVideos);
                    
                  
                   

@@ -12,8 +12,6 @@ import setWechatTitle from './utils/setWechatTitle.js' //基于微信单页面�
 
 import weui from 'weui'; //引入weui css 核心库
 
-// require('weixin-js-sdk'); //wxJSSDK引入
-
 
 Vue.use(VueLazyload, {
   preLoad: 1.3,
