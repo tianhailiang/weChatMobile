@@ -171,14 +171,15 @@
         ucoin: {
           count: '',
           price: ''
-        }
+        },
+        payData:{}
       }
     },
     components: {
       numCount
     },
     filters: {
-      tofixed:function (value) {
+      tofixed: function (value) {
         if (isNaN(value)) {
           return value;
         }
@@ -189,6 +190,37 @@
       console.log(this.$route.params);
     },
     computed: {},
+    mounted(){
+      axios.post("http://192.168.3.142:9080/ucanchat/view/linkChat/jsapi",{
+
+      }).then(function(response){
+        console.log(response);
+
+
+        //获取微信时间戳和签名
+//        wx.config({
+//          debug: true,
+//          appId: "wx94db2a3298ae63ab",
+//          timestamp: 1496800723,
+//          nonceStr: 'cfd485d7-8628-41a7-ac58-e9f22bef1ac1',
+//          signature: '5704e9a9d026d025fc48087a40887b69ff66ab48',
+//          jsApiList: ['chooseWXPay']
+//        });
+        this.$set(this,"payData",result.data);
+
+        wx.config({
+          debug:true,
+          appId: "wx0155c458e601b602",
+          timestamp: response.timestamp,
+          nonceStr: response.nonceStr,
+          signature: response.signature,
+          jsApiList:[ 'chooseWXPay']
+        });
+      }.bind(this)).catch(function(error){
+
+        console.log(error)
+      });
+    },
     methods: {
       getRechargeNum(msg){
         this.rechargeNum = msg;
@@ -214,48 +246,46 @@
       toCloseConfirm(){
         this.toShowConfirm = false;
       },
-      goPayFn(){
-          console.log('点击去支付');
-
-        //获取微信时间戳和签名
+      goPayFn(payData){
+        console.log('点击去支付');
+        var vm = this;
+        vm.weixinPay(payData);
         console.log('wx'+wx);
-        axios.get("http://m.wishlist1314.com/wishlist_mobile/wechat/getConfig",{
 
-        }).then(function(response){
-          wx.config({
-            debug:true,
-            appId: "wx0155c458e601b602",
-            timestamp: response.timestamp,
-            nonceStr: response.nonceStr,
-            signature: response.signature,
-            jsApiList:[ 'chooseWXPay']
-          });
-
-          wx.ready(function() {
-            //发起一个微信支付请求
-            wx.chooseWXPay({
-              timestamp: 0, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
-              nonceStr: '', // 支付签名随机串，不长于 32 位
-              package: '', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
-              signType: '', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
-              paySign: '', // 支付签名
-              success: function (res) {
-                // 支付成功后的回调函数
-              }
-            });
-          });
-
-        }.bind(this))
-          .catch(function(error){
-
-            console.log(error)
-          });
-
-
-
+      },
+      weixinPay: function (data) {
+        var vm = this;
+        if (typeof WeixinJSBridge == "undefined") {//微信浏览器内置对象。参考微信官方文档
+          if (document.addEventListener) {
+            document.addEventListener('WeixinJSBridgeReady', vm.onBridgeReady(data), false);
+          } else if (document.attachEvent) {
+            document.attachEvent('WeixinJSBridgeReady', vm.onBridgeReady(data));
+            document.attachEvent('onWeixinJSBridgeReady', vm.onBridgeReady(data));
+          }
+        } else {
+          vm.onBridgeReady(data);
+        }
+      },
+      onBridgeReady: function (data) {
+        var vm = this;
+        WeixinJSBridge.invoke(
+          'getBrandWCPayRequest', {
+            "appId": data.appId,     //公众号名称，由商户传入
+            "timeStamp": data.timeStamp, //时间戳，自1970年以来的秒数
+            "nonceStr": data.nonceStr, //随机串
+            "package": data.package,
+            "signType": data.signType, //微信签名方式：
+            "paySign": data.paySign //微信签名
+          }, function (res) {
+            // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+            if (res.err_msg == "get_brand_wcpay_request：ok") {
+              vm.$router.push("/reservedBerth");
+            } else {
+              alert("支付失败,请跳转页面" + res.err_msg);
+            }
+          })
       }
     }
   }
-
 
 </script>

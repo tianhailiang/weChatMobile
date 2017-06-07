@@ -104,35 +104,31 @@
       picUploadFn(event){
         console.log('picUploadFn');
 
-
-
-
-
-        var parent_obj = event.target.parent();// ul
+        var parent_obj = event.target.parentNode;// ul
         console.log(parent_obj);
         var img_length = parent_obj.find('li').length;
-        cosole.log(img_length);
-        img_length--;
-        if (img_length >= 6) {
-          return false;
-        }
-        img_length = 6 - img_length;
-        wx.chooseImage({
-          count: 6, // 默认9
-          sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-          sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-          success: function (res) {
-            var localId = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
-            for (i = 0; i < localId.length; i++) {
-              parent_obj.prepend('<li class="pic_list">' +
-                '<div class="pic upload-img">' + '<img src="' + localId[i] + '" class="show_img" >' +
-                '<div class="pic-close"><img src="' +
-                $close_img + '"/></div></div>' +
-                '</li>');
-            }
-
-          }
-        });
+//        cosole.log(img_length);
+//        img_length--;
+//        if (img_length >= 6) {
+//          return false;
+//        }
+//        img_length = 6 - img_length;
+//        wx.chooseImage({
+//          count: 6, // 默认9
+//          sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+//          sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+//          success: function (res) {
+//            var localId = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+//            for (i = 0; i < localId.length; i++) {
+//              parent_obj.prepend('<li class="pic_list">' +
+//                '<div class="pic upload-img">' + '<img src="' + localId[i] + '" class="show_img" >' +
+//                '<div class="pic-close"><img src="' +
+//                $close_img + '"/></div></div>' +
+//                '</li>');
+//            }
+//
+//          }
+//        });
       }
     }
 

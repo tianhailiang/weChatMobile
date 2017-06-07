@@ -14,6 +14,7 @@
     "video.js": "^5.19.2",
     "vue": "^2.3.3",
     "vue-awesome-swiper": "^2.4.2",
+    "vue-file-upload": "^0.1.2",
     "vue-lazyload": "^1.0.4",
     "vue-router": "^2.3.1",
     "weixin-js-sdk": "^1.2.0",

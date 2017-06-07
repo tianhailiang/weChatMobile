@@ -24,6 +24,10 @@ import  partnerSchool from   '@/components/partnerSchool/partnerSchool' //合作
 import  everyPartnerSchool from   '@/components/partnerSchool/everyPartnerSchool'  //合作学校详情页
 
 import  sponsor from   '@/components/sponsor/sponsor' //赞助商
+
+
+
+import  fileUploader from '@/components/fileUploader/fileUploader'   //上传文件
 Vue.use(Router)
 
 export default new Router({
@@ -87,10 +91,10 @@ export default new Router({
       meta: {title: "我的才艺空间"}
     },
     {
-      path: '/Recharge/:id',
+      path: '/talentSpace/Recharge/:id',
       name: 'Recharge',
       component: Recharge,
-      meta: {title: "优看杯大赛充值"}
+      meta: {title: "优看杯大赛支付"}
     },
     {
       path:'/ShowRecharge',
@@ -121,7 +125,16 @@ export default new Router({
       name: 'sponsor',
       component: sponsor,
       meta:{title: "赞助商"}
+    },
+
+    {
+      path: '/fileUploader',
+      name: 'fileUploader',
+      component: fileUploader,
+      meta:{title: "上传文件"}
     }
+
+
 ]
 
 })

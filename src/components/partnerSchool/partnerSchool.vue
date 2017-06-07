@@ -28,9 +28,9 @@
   <div>
     <div class="box">
       <ul >
-          <router-link tag="li"  v-for="item in schoolList" :key="item.schoolId" :to="{name:'everyPartNerSchool',params: { id: item.schoolId}}">
+          <router-link tag="li" v-for="item in schoolList" :key="item.schoolId" :to="{name:'everyPartnerSchool',params: { id: item.schoolId}}">
             <figure class="inBox_img">
-              <img v-lazy="item.schoolPicture"  alt="" width="100%" height="140px">
+              <img v-lazy="item.schoolLogo.imageVisitUrl"  alt="" width="100%" height="140px">
             </figure>
             <div class="inBox_text">
                 <span>
@@ -59,7 +59,7 @@
     mounted: function () {
 //      http://192.168.3.140:8080/ucanchat/view/activity/getSchoolList
 
-      axios.get("./static/getmock/voteSchool.json", {})
+      axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getSchoolList", {})
         .then(function (response) {
 
           var result = response.data;
