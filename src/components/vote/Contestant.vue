@@ -162,7 +162,7 @@
 
                           <i>编号：</i><span>{{item.participantNum}}</span><i class="diamonds" ><b style="font-weight: normal;">{{item.participantVotes}}</b>票</i>
                         </div>
-                        <div class="vote_div" @click.stop="voteBtn(item.contestantId,$event)">
+                        <div class="vote_div" @click.stop="voteBtn(item.participantId,$event)">
                             投TA一票
                         </div>
 
@@ -245,71 +245,74 @@ export default {
   },
 
   methods:{
+    
 
       voteBtn(val,event){
+       
 
+         this.$router.push({name:"Recharge"});
 
-      if(this.balance){
+      // if(this.balance){
 
-          //./static/getmock/voteSuccess.json
+      //     //./static/getmock/voteSuccess.json
          
-          axios.get("./static/getmock/voteSuccess.json",{
-                  params:{
-                    id:this.$route.params.id
-                  }
-               })
-              .then(function (response) {
+      //     axios.get("./static/getmock/voteSuccess.json",{
+      //             params:{
+      //               id:this.$route.params.id
+      //             }
+      //          })
+      //         .then(function (response) {
 
-                var result =response.data;
+      //           var result =response.data;
 
-                  this.$set(this,"dialogSuccess",true);
-                  if(result.code==0){
+      //             this.$set(this,"dialogSuccess",true);
+      //             if(result.code==0){
 
-                     event.target.parentNode.children[1].children[2].children[0].innerHTML=Number(event.target.parentNode.children[1].children[2].children[0].innerHTML)+1;
+      //                event.target.parentNode.children[1].children[2].children[0].innerHTML=Number(event.target.parentNode.children[1].children[2].children[0].innerHTML)+1;
 
-                     var vm=this;
-
-
-                     setTimeout(function(){
-
-                          vm.$set(vm,"dialogSuccess",false);
-
-                     },3000)
+      //                var vm=this;
 
 
-                  }else{
+      //                setTimeout(function(){
+
+      //                     vm.$set(vm,"dialogSuccess",false);
+
+      //                },3000)
 
 
-                      this.$set(this,"succesVal",false);
+      //             }else{
 
 
-                      this.$refs.weuiDialog.children[1].innerHTML=result.message;
-
-                       var vm=this;
+      //                 this.$set(this,"succesVal",false);
 
 
-                       setTimeout(function(){
+      //                 this.$refs.weuiDialog.children[1].innerHTML=result.message;
 
-                            vm.$set(vm,"dialogSuccess",false);
-
-                       },3000)
+      //                  var vm=this;
 
 
-                  }
+      //                  setTimeout(function(){
+
+      //                       vm.$set(vm,"dialogSuccess",false);
+
+      //                  },3000)
+
+
+      //             }
 
 
 
-              }.bind(this))
-              .catch(function (error) {
-                  console.log(error);
-              });
+      //         }.bind(this))
+      //         .catch(function (error) {
+      //             console.log(error);
+      //         });
 
 
-        }else{
+      //   }else{
 
-          this.$set(this,'dialogVisble',true);
+      //     this.$set(this,'dialogVisble',true);
 
-        }
+      //   }
 
 
     }

@@ -213,6 +213,8 @@
 
       if(this.balance){
 
+
+
          axios.get("./static/getmock/voteSuccess.json",{
 
                })
@@ -275,9 +277,10 @@
   },
   
   mounted:function(){
+     
+     //./static/getmock/searchResult.json 
 
-
-      axios.get("./static/getmock/searchResult.json",{
+      axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getParticiByNameOrNum",{
              contestantId:this.$route.query.searchVal
              
            })

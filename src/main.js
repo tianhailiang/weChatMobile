@@ -22,7 +22,20 @@ Vue.use(VueLazyload, {
   preLoad: 1.3,
   error: '',
   loading: 'http://localhost:7777/static/images/loading.gif',
-  attempt: 1
+  attempt: 1,
+  adapter: {
+        loaded ({ bindType, el, naturalHeight, naturalWidth, $parent, src, loading, error, Init }) {
+            // do something here
+            // example for call LoadedHandler
+            // alert(el)
+        }
+        // loading (listender, Init) {
+        //     console.log('loading')
+        // },
+        // error (listender, Init) {
+        //     console.log('error')
+        // }
+    }
 });
 
 

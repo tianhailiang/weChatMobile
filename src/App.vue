@@ -63,7 +63,13 @@ FontAwesome, sans-serif;color:#030000; overflow-x:hidden;
 html, body {
     width: 100%;
     height: 100%;
+   
 
+}
+
+body{
+   -webkit-overflow-scrolling:touch;
+   
 }
 
 
@@ -83,6 +89,7 @@ html, body {
 
   width:100%;
   height:100%;
+
 }
 
 

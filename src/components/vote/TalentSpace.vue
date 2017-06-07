@@ -114,7 +114,6 @@
 
 <template>
 	
-  <div>
 
 	  <div class="talent_box">
 
@@ -154,7 +153,7 @@
 
              <li v-for="(item,index) in albumList" :key="index">
              	
-             	 <img v-lazy="item.imageVisitUrl" />
+             	 <img :src="item.imageVisitUrl" />
 
              </li>
 
@@ -192,13 +191,12 @@
     </div>
    
 
-  </div>
+ 
 </template>
 
 <script>
 
 import axios from 'axios';
-
 
 export default {
 	name:"TalentSpace",
@@ -219,14 +217,22 @@ export default {
 
 	methods:{
    
+   voteBtn(val,event){
+       
+         this.$router.push({name:"Recharge"});
+
+   }      
      
 	},
 
 	mounted:function(){
 
+
+
         //./static/getmock/talentSpace.json
         //http://192.168.3.140:8080/ucanchat/view/activity/getStudentDetailInfo
-       console.log(this.$route.params.particiNum)
+       // console.log(this.$route.params.particiNum)
+     
         axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getStudentDetailInfo",{
                params:{
                  particiNum:this.$route.params.particiNum
