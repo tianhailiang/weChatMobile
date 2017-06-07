@@ -14,7 +14,8 @@ import weui from 'weui'; //引入weui css 核心库
 
 // require('weixin-js-sdk'); //wxJSSDK引入
 
-
+// const VueFileUpload = require('vue-file-upload'); // 引入上传文件vue插件
+// Vue.use(VueFileUpload)
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   error: '',

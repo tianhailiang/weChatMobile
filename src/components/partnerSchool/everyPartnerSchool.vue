@@ -68,7 +68,7 @@
 <template>
   <div class="box">
     <div class="textBox">
-      智慧之星教育科技有限公司是一家致力于青少年教育和娱乐的高科技公司，公司引进美国哈佛教育科技研究院和北京师范大学研究的教育理念，我们将用最新网络技术和动漫表现形似开发出为幼儿园、中小学生、老师和家长所需的互动智能教学平台。在此平台上，学生们能够通过一系列青少年智能课件满足学习和娱乐需求。老是、学生和家长可以通过APP获取学习课件、电子图书、教学、交流、娱乐等在线学习和服务。
+        {{schoolIntroduction}}
     </div>
     <div class="titleBox">学校展示</div>
     <div class="lineBox">
@@ -76,26 +76,26 @@
     </div>
     <ul>
       <li>
-        <div class="showBox">
-          <img :src="imgSrc" alt="" width="100%" height="100%">
+        <div class="showBox" v-for="item in uParticipantImages" >
+          <img :src="item.imageVisitUrl" alt="" width="100%" height="100%">
         </div>
 
 
-        <p class="bottomTextBox">{{imgText}}</p>
+        <p class="bottomTextBox">{{imageNewName}}</p>
       </li>
 
       <li>
-        <div class="showBox videoBox">
+        <div class="showBox videoBox" v-for="item in uParticipantImages">
           <video
             id="my-player"
             class="video-js"
             controls
             preload="auto"
-            :poster="videoImg='/static/video/ucanCup_summary.jpg'"
+            :poster="videoVisitUrl='/static/video/ucanCup_summary.jpg'"
             data-setup='{}'>
-            <source :src="videoFile[0]" type="video/mp4"></source>
-            <source :src="videoFile[1]" type="video/webm"></source>
-            <source :src="videoFile[2]" type="video/ogg"></source>
+            <source :src="item.imageVisitUrl" :type="videoType"></source>
+            <source :src="videoVisitUrl" :type="videoType"></source>
+            <source :src="videoVisitUrl" :type="videoType"></source>
             <p class="vjs-no-js">
               您的浏览器还不支持此类型视频播放！请尝试升级浏览器！
               <a href="http://videojs.com/html5-video-support/" target="_blank">
@@ -104,7 +104,7 @@
             </p>
           </video>
         </div>
-        <p class="bottomTextBox">{{videoText}}</p>
+        <p class="bottomTextBox">{{videoNewName}}</p>
       </li>
 
     </ul>
@@ -120,27 +120,34 @@
     name: 'everyPartnerSchool',
     data () {
       return {
-        imgSrc: '',
-        videoSrc: '',
-        imgText: '学校展示图片',
-        videoText:'学校展示视频',
-        videoFile: ['//vjs.zencdn.net/v/oceans.mp4', '//vjs.zencdn.net/v/oceans.webm', '//vjs.zencdn.net/v/oceans.ogv'],
-        videoImg: ''
+        schoolName:'',
+        schoolIntroduction:'',
+        imageVisitUrl: '',
+        imageNewName: '学校展示图片',
+        videoVisitUrl: '',
+        videoNewName:'学校展示视频',
+        videoImg: '',
+        videoType:''
       }
     },
     components: {},
     mounted: function () {
-
-      axios.get("./static/getmock/voteSchool.json", {}).then(function (response) {
-
+      axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getSchoolDetailInfo", {
+        params:{
+          schoolId:this.$route.params.id
+        }
+      }).then(function (response) {
+          console.log(response);
           var result = response.data;
 
           if (result.code == 0) {
 
-            console.log(result)
+            console.log(result.data.schoolDetail.uParticipantImages)
 
-            this.$set(this, "schoolList", result.data.schoolList);
-
+            this.$set(this, "schoolName", result.data.schoolDetail.schoolName);
+            this.$set(this, "schoolIntroduction", result.data.schoolDetail.schoolIntroduction);
+            this.$set(this, "uParticipantImages", result.data.schoolDetail.uParticipantImages);
+            this.$set(this, "uParticipantVideos", result.data.schoolDetail.uParticipantVideos);
           } else {
 
             console.log(result.msg)
