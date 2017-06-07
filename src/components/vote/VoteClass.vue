@@ -70,7 +70,7 @@
             <figure class="vote_school_figure">
                      <img  v-lazy="classPicture" class="vote_school_img" lazy="loading"/>
                      
-                     <figcaption>{{item.className}}</figcaption> 
+                     <figcaption>{{item.classesName}}</figcaption> 
             </figure> 
           
         </router-link>
@@ -103,8 +103,8 @@ export default {
   mounted:function(){
       //./static/getmock/voteClass.json
       //http://192.168.3.140:8080/ucanchat/view/activity/getSchoolClassesList?id=1
-      console.log(this.$route.params.id)
-      axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getSchoolClassesList",{
+      
+      axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getSchoolClassesList?id=1",{
             params:{
               id:this.$route.params.id
             }
@@ -118,7 +118,7 @@ export default {
               if(result.code==0){
 
                 
-                 this.$set(this,"classList",result.data.calssesList);
+                 this.$set(this,"classList",result.data.classesList);
 
                 
               }else{

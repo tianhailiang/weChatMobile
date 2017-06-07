@@ -328,7 +328,7 @@ export default {
 
                 if(result.code==0){
 
-                   console.log(result)
+                   // console.log(result)
                    this.$set(this,"contestantList",result.data.contestantList);
                    this.$set(this,"balance",result.data.balance);
 
@@ -346,21 +346,26 @@ export default {
 
          //获取微信时间戳和签名
          console.log(wx)
+         //http://m.wishlist1314.com/wishlist_mobile/wechat/getConfig
 
-         axios.get("http://m.wishlist1314.com/wishlist_mobile/wechat/getConfig",{
+         axios.get("./static/getmock/wxConfig.json",{
 
          }).then(function(response){
+                
+              var result =response.data;
+              console.log(result)
+              if(result.code==0){
 
-                wx.config({
-                  debug:true,
-                  appId: "wx0155c458e601b602",
-                  timestamp: response.timestamp,
-                  nonceStr: response.nonceStr,
-                  signature: response.signature,
-                  jsApiList:[ 'onMenuShareTimeline']
-               });
+                  wx.config({
+                    debug:true,
+                    appId: "wx94db2a3298ae63ab",
+                    timestamp: result.data.timestamp,
+                    nonceStr: result.data.nonceStr,
+                    signature: result.data.signature,
+                    jsApiList:[ 'onMenuShareTimeline']
+                 });
 
-                wx.ready(function() {
+                   wx.ready(function() {
 
 
                       wx.onMenuShareTimeline({
@@ -379,6 +384,14 @@ export default {
 
                     //ready
                  });
+
+              }else{
+                console.log(result.message)
+              }
+
+                
+
+               
 
          }.bind(this))
          .catch(function(error){
