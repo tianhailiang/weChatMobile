@@ -25,7 +25,8 @@ import  everyPartnerSchool from   '@/components/partnerSchool/everyPartnerSchool
 
 import  sponsor from   '@/components/sponsor/sponsor' //赞助商
 
-
+import  paySuccess from   '@/components/Recharge/paySuccess' //支付成功
+import  payFail from   '@/components/Recharge/payFail' //支付失败
 
 // import  fileUploader from '@/components/fileUploader/fileUploader'   //上传文件
 Vue.use(Router)
@@ -125,14 +126,19 @@ export default new Router({
       name: 'sponsor',
       component: sponsor,
       meta:{title: "赞助商"}
+    },
+    {
+      path: '/paySuccess',
+      name: 'paySuccess',
+      component: paySuccess,
+      meta:{title: "支付信息提示"}
+    },
+    {
+      path: '/payFail',
+      name: 'payFail',
+      component: payFail,
+      meta:{title: "支付信息提示"}
     }
-
-    // {
-    //   path: '/fileUploader',
-    //   name: 'fileUploader',
-    //   component: fileUploader,
-    //   meta:{title: "上传文件"}
-    // }
 
 
 ]

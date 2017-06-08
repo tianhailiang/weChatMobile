@@ -172,7 +172,8 @@
           count: '',
           price: ''
         },
-        payData:{}
+        configData:{},
+        is_ajax:false
       }
     },
     components: {
@@ -191,13 +192,14 @@
     },
     computed: {},
     mounted(){
-      axios.post("http://192.168.3.142:9080/ucanchat/view/linkChat/jsapi",{
+//      axios.post("http://192.168.3.142:9080/ucanchat/view/linkChat/jsapi",{
+//
+//      }).then(function(response){
+//
+//          console.log('configData:')
+//          console.log(response);
+//        this.$set(this,"configData",response.data);
 
-      }).then(function(response){
-        console.log(response);
-
-
-        //获取微信时间戳和签名
 //        wx.config({
 //          debug: true,
 //          appId: "wx94db2a3298ae63ab",
@@ -206,20 +208,23 @@
 //          signature: '5704e9a9d026d025fc48087a40887b69ff66ab48',
 //          jsApiList: ['chooseWXPay']
 //        });
-        this.$set(this,"payData",result.data);
 
-        wx.config({
-          debug:true,
-          appId: "wx0155c458e601b602",
-          timestamp: response.timestamp,
-          nonceStr: response.nonceStr,
-          signature: response.signature,
-          jsApiList:[ 'chooseWXPay']
-        });
-      }.bind(this)).catch(function(error){
+        //虚拟获取微信时间戳和签名
+//        wx.config({
+//          debug:true,
+//          appId: "wx0155c458e601b602",
+//          timestamp: response.timestamp,
+//          nonceStr: response.nonceStr,
+//          signature: response.signature,
+//          jsApiList:[ 'chooseWXPay']
+//        });
+//        this.is_ajax = true;
+//
+//      }.bind(this)).catch(function(error){
+//        this.is_ajax = false;
+//        console.log(error)
+//      });
 
-        console.log(error)
-      });
     },
     methods: {
       getRechargeNum(msg){
@@ -229,31 +234,41 @@
         if (this.rechargeNum <= 0)
           return
         else
-          console.log(this.rechargeNum)
+          console.log(this.rechargeNum);
+          console.log('点击出现支付弹窗');
         this.toShowConfirm = true;
-
+        //跳转支付页面（现这个页面的支付直接改为弹窗）
 //        this.$router.push({
 //          path: '/ShowRecharge',
 //          query: {
 //            userId :this.$route.params.id,
 //            rechargeNum :this.rechargeNum
-//
 //          }
-//
 //        });
 
       },
       toCloseConfirm(){
         this.toShowConfirm = false;
       },
-      goPayFn(payData){
+      goPayFn(){
         console.log('点击去支付');
-        var vm = this;
-        vm.weixinPay(payData);
-        console.log('wx'+wx);
-
+//        console.log('goPayfn_is_ajax'+this.is_ajax);
+//        if (this.is_ajax){
+          axios.get("http://192.168.3.142:9080/ucanchat/view/orderChat/payOrderBefore",{
+          }).then(function(response){
+            //获取到了支付签名等参数
+            console.log('获得支付签名等参数');
+            console.log(response);
+            //执行调用支付接口函数
+            this.weixinPay(response.data.data);
+          }.bind(this)).catch(function(error){
+            console.log(error)
+          });
+//        }
       },
       weixinPay: function (data) {
+          console.log("微信data输出111111:");
+          console.log(data);
         var vm = this;
         if (typeof WeixinJSBridge == "undefined") {//微信浏览器内置对象。参考微信官方文档
           if (document.addEventListener) {
@@ -267,21 +282,25 @@
         }
       },
       onBridgeReady: function (data) {
+        console.log("微信data输出22222222:");
+        console.log(data);
         var vm = this;
         WeixinJSBridge.invoke(
           'getBrandWCPayRequest', {
-            "appId": data.appId,     //公众号名称，由商户传入
+            "appId": data.appid,     //公众号名称，由商户传入
             "timeStamp": data.timeStamp, //时间戳，自1970年以来的秒数
             "nonceStr": data.nonceStr, //随机串
             "package": data.package,
-            "signType": data.signType, //微信签名方式：
+            "signType": data.signType, //微信签名方式
             "paySign": data.paySign //微信签名
           }, function (res) {
             // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
             if (res.err_msg == "get_brand_wcpay_request：ok") {
-              vm.$router.push("/reservedBerth");
+//              vm.$router.push("/paySuccess");
+
             } else {
               alert("支付失败,请跳转页面" + res.err_msg);
+//              vm.$router.push("/payFail");
             }
           })
       }
