@@ -15,7 +15,7 @@
   height:335px;
 }
 
-.talent_dd{
+.talent_dt{
   position:relative;
 }
 
@@ -28,6 +28,11 @@
 
 .diamonds{
    position: absolute;
+  /* width:80px;
+   height:80px;*/
+  
+   right:22.5px;
+   bottom:-42.5px;
  }
 
 .vote_div{
@@ -63,12 +68,6 @@
       background:url(../warmUp/img/ucanCup_04.jpg) no-repeat 0 0;
       background-size: contain;
     }
-
-
-
-
-
-
 
 
 
@@ -119,8 +118,9 @@
 
         <dl class="talent_dl" >
 
-            <dt>
+            <dt class="talent_dt">
                <img :src="contestantPicture" />
+                <canvas   ref="canvas" class="diamonds" width="85" height="85"></canvas>
              </dt>
              <dd class="talent_dd">
                
@@ -129,7 +129,7 @@
                </div>
                <div class="txt_div">
                                 
-                    <i>编号：</i><span>{{contestantNumber}}</span><i class="diamonds"><b style="font-weight: normal">{{ticket}}</b>票</i>
+                    <i>编号：</i><span>{{contestantNumber}}</span>
                </div>
                 <div class="txt_div">
                     {{particiIntroduce}}
@@ -205,7 +205,7 @@ export default {
            contestantPicture:'',
            contestantName:'',
            contestantNumber:'',
-           ticket:'', 
+           ticket:'200', 
            albumList:[],
            videoList:[],
            dialogVisble:false,
@@ -221,7 +221,9 @@ export default {
        
          this.$router.push({name:"Recharge"});
 
-   }      
+   },
+
+
      
 	},
 
@@ -232,8 +234,36 @@ export default {
         //./static/getmock/talentSpace.json
         //http://192.168.3.140:8080/ucanchat/view/activity/getStudentDetailInfo
        // console.log(this.$route.params.particiNum)
+       var canvas=this.$refs.canvas;
+       var ctx = canvas.getContext("2d");
+      
+       ctx.beginPath();
+       ctx.arc(42.5,42.5,40,0,Math.PI*2,true); // 绘制
+       ctx.lineWidth=1;
+       ctx.strokeStyle="#acacaa";
+       ctx.stroke();
+       ctx.closePath();
+      
+       ctx.fillStyle="#fde308";
+       ctx.arc(42.5,42.5,39,0,Math.PI*2,true);
+       ctx.fill();
+      
+       ctx.beginPath();
+       ctx.fillStyle="#fff1c0";
+       ctx.arc(42.5,42.5,34,0,Math.PI*2,true);
+       ctx.fill();
+       ctx.closePath();
+       ctx.beginPath();
+       ctx.fillStyle="#fff";
+       ctx.arc(42.5,42.5,29,0,Math.PI*2,true);
+       ctx.fill();
+       ctx.closePath();
+       ctx.font="18px bold";
+       ctx.fillStyle="#65390a";
+       ctx.textAlign="center";
+       ctx.fillText(this.ticket+"票", 42.5, 47.5);
      
-        axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getStudentDetailInfo",{
+        axios.get("./static/getmock/talentSpace.json",{
                params:{
                  particiNum:this.$route.params.particiNum
                }
@@ -268,6 +298,9 @@ export default {
             .catch(function (error) {
                 console.log(error);
             }); 
+
+
+
         
 	}
 

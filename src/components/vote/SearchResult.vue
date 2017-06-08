@@ -308,11 +308,29 @@
      var ctx = canvas.getContext("2d");
     
      ctx.beginPath();
-     ctx.arc(75,75,37.5,0,Math.PI*2,true); // 绘制
+     ctx.arc(37.5,37.5,37.5,0,Math.PI*2,true); // 绘制
      ctx.stroke();
-     ctx.arc(75,75,37.5,0,Math.PI*2,true);
+     ctx.closePath();
+    
      ctx.fillStyle="#fde308";
+     ctx.arc(37.5,37.5,37.5,0,Math.PI*2,true);
      ctx.fill();
+    
+     ctx.beginPath();
+     ctx.fillStyle="#fff1c0";
+     ctx.arc(37.5,37.5,32.5,0,Math.PI*2,true);
+     ctx.fill();
+     ctx.closePath();
+     ctx.beginPath();
+     ctx.fillStyle="#fff";
+     ctx.arc(37.5,37.5,27.5,0,Math.PI*2,true);
+     ctx.fill();
+     ctx.closePath();
+     ctx.font="18px bold";
+     ctx.fillStyle="#65390a";
+     ctx.textAlign="center";
+     ctx.fillText("100票", 37.5, 40.5);
+
     
 
 
