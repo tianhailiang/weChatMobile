@@ -93,7 +93,7 @@ export default {
     return {
    
      classList:[],
-     classPicture:"http://localhost:7777/static/images/course.jpg"
+     classPicture:"./static/images/course.jpg"
     }
   },
   components: {
@@ -104,7 +104,7 @@ export default {
       //./static/getmock/voteClass.json
       //http://192.168.3.140:8080/ucanchat/view/activity/getSchoolClassesList
       
-      axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getSchoolClassesList",{
+      axios.get("./static/getmock/voteClass.json",{
             params:{
               id:this.$route.params.id
             }

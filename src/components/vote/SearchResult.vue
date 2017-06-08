@@ -12,15 +12,32 @@
   height:100%;
 }
 
-.search_box{
-  padding:0 20px;
-}
+ .vote_school_ul{
+      display: flex;
+      flex-wrap:wrap;
+      padding:0 20px;
+  }
 
+ .vote_school_ul li{
+
+       width:50%;
+       box-sizing: border-box;
+        margin-bottom: 20px;
+
+  }
+
+.vote_school_ul li:nth-of-type(2n+1){
+
+        padding-right:5px;
+      }
+
+     .vote_school_ul li:nth-of-type(2n){
+       padding-left: 5px
+     }
 
 .search_dl{
  
  border:1px solid #9f9f9d;
- width:50%;
  
 }
 
@@ -114,29 +131,30 @@
       <div class="vote-top">
         <img src="../warmUp/img/ucanCup_01.jpg" />
       </div>
-      <div class="search_box">
+       <ul class="vote_school_ul" >
       		
-            <router-link  class="search_dl" tag="dl"  :to="{name:'talentSpace',params: {id:contestantId}}">
-             <dt>
-               <img :src="contestantPicture" />
-             </dt>
-             <dd class="search_dd">
-               
-               <div class="txt_div">
-                    <i>姓名：</i><span>{{contestantName}}</span>
-               </div>
-               <div class="txt_div">
-                                
-                    <i>编号：</i><span>{{contestantNumber}}</span><i class="diamonds"><b style="font-weight: normal">{{ticket}}</b>票</i>
-                </div>
-                 <div class="vote_div" @click.stop="voteBtn($event)">
-                      投TA一票
-                 </div>   
-             </dd>
-
+            <router-link   tag="li"  :to="{name:'talentSpace',params: {id:contestantId}}">
+             <dl class="search_dl">
+                 <dt>
+                   <img :src="contestantPicture" />
+                 </dt>
+                 <dd class="search_dd">
+                   
+                   <div class="txt_div">
+                        <i>姓名：</i><span>{{contestantName}}</span>
+                   </div>
+                   <div class="txt_div">
+                                    
+                        <i>编号：</i><span>{{contestantNumber}}</span><i class="diamonds"><b style="font-weight: normal">{{ticket}}</b>票</i>
+                    </div>
+                     <div class="vote_div" @click.stop="voteBtn($event)">
+                          投TA一票
+                     </div>   
+                 </dd>
+            </dl>
            </router-link>
 
-     </div>
+    </ul>
 
      <div class="contest_title" >
           <span>投票规则</span>
@@ -151,6 +169,7 @@
 
       </li>
     </ul>
+    <canvas id="canvas" width="300" height="300" ref="canvas"></canvas>
 
     <transition name="fade" >
 
@@ -206,70 +225,75 @@
   components: {
     
   },
+  created:function(){
+    
+  },
 
   methods:{
 
     voteBtn(event){
 
-      if(this.balance){
+      this.$router.push({name:"Recharge"});
+
+      // if(this.balance){
 
 
 
-         axios.get("./static/getmock/voteSuccess.json",{
+      //    axios.get("./static/getmock/voteSuccess.json",{
 
-               })
-              .then(function (response) {
+      //          })
+      //         .then(function (response) {
 
-                var result =response.data;
+      //           var result =response.data;
 
-                  this.$set(this,"dialogSuccess",true);
-                  if(result.code==0){
+      //             this.$set(this,"dialogSuccess",true);
+      //             if(result.code==0){
 
-                     event.target.parentNode.children[1].children[2].children[0].innerHTML=Number(event.target.parentNode.children[1].children[2].children[0].innerHTML)+1;
+      //                event.target.parentNode.children[1].children[2].children[0].innerHTML=Number(event.target.parentNode.children[1].children[2].children[0].innerHTML)+1;
 
-                     var vm=this;
+      //                var vm=this;
 
 
-                     setTimeout(function(){
+      //                setTimeout(function(){
  
-                          vm.$set(vm,"dialogSuccess",false);
+      //                     vm.$set(vm,"dialogSuccess",false);
 
-                     },3000)
+      //                },3000)
 
                     
-                  }else{
+      //             }else{
 
                    
-                      this.$set(this,"succesVal",false); 
+      //                 this.$set(this,"succesVal",false); 
 
                      
-                      this.$refs.weuiDialog.children[1].innerHTML=result.message;
+      //                 this.$refs.weuiDialog.children[1].innerHTML=result.message;
 
-                       var vm=this;
+      //                  var vm=this;
 
 
-                       setTimeout(function(){
+      //                  setTimeout(function(){
    
-                            vm.$set(vm,"dialogSuccess",false);
+      //                       vm.$set(vm,"dialogSuccess",false);
 
-                       },3000)
+      //                  },3000)
 
 
-                  } 
+      //             } 
                   
                   
 
-              }.bind(this))
-              .catch(function (error) {
-                  console.log(error);
-              });
+      //         }.bind(this))
+      //         .catch(function (error) {
+      //             console.log(error);
+      //         });
 
 
-      }else{
+      // }else{
 
-        this.$set(this,'dialogVisble',true);
+      //   this.$set(this,'dialogVisble',true);
 
-      }
+      // }
 
      
     }
@@ -279,6 +303,21 @@
   mounted:function(){
      
      //./static/getmock/searchResult.json 
+
+     var canvas=this.$refs.canvas;
+     var ctx = canvas.getContext("2d");
+    
+     ctx.beginPath();
+     ctx.arc(75,75,37.5,0,Math.PI*2,true); // 绘制
+     ctx.stroke();
+     ctx.arc(75,75,37.5,0,Math.PI*2,true);
+     ctx.fillStyle="#fde308";
+     ctx.fill();
+    
+
+
+
+     
 
       axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getParticiByNameOrNum",{
              contestantId:this.$route.query.searchVal

@@ -153,7 +153,7 @@
 
              <li v-for="(item,index) in albumList" :key="index">
              	
-             	 <img :src="item.imageVisitUrl" />
+             	 <img v-lazy="item.imageVisitUrl" />
 
              </li>
 

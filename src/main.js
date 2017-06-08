@@ -13,28 +13,27 @@ import setWechatTitle from './utils/setWechatTitle.js' //基于微信单页面�
 import weui from 'weui'; //引入weui css 核心库
 
 
-
-
 // const VueFileUpload = require('vue-file-upload'); // 引入上传文件vue插件
 // Vue.use(VueFileUpload)
+
 
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   error: '',
-  loading: 'http://localhost:7777/static/images/loading.gif',
+  loading: './static/images/loading.gif',
   attempt: 1,
   adapter: {
         loaded ({ bindType, el, naturalHeight, naturalWidth, $parent, src, loading, error, Init }) {
             // do something here
             // example for call LoadedHandler
             // alert(el)
+        },
+        loading (listender, Init) {
+            // alert('loading')
+        },
+        error (listender, Init) {
+            // alert('error')
         }
-        // loading (listender, Init) {
-        //     console.log('loading')
-        // },
-        // error (listender, Init) {
-        //     console.log('error')
-        // }
     }
 });
 
@@ -45,7 +44,8 @@ router.beforeEach((to, from, next) => {
    setWechatTitle(to.meta.title);
 
   next()
-})
+});
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
