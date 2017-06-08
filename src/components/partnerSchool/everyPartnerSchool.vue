@@ -39,15 +39,14 @@
 
   ul li {
     width: 100%;
-    height: 240px;
+    min-height: 100px;
     margin-top: 20px;
   }
 
   ul li .showBox {
     width: 100%;
-    height: 200px;
+    min-height: 100px;
   }
-
   ul li .bottomTextBox {
     text-align: center;
     margin: 0 auto;
@@ -75,27 +74,25 @@
       <div class="inlineBox"></div>
     </div>
     <ul>
-      <li>
-        <div class="showBox" v-for="item in uParticipantImages" >
-          <img :src="item.imageVisitUrl" alt="" width="100%" height="100%">
+      <li v-for="item in uParticipantImages" >
+        <div class="showBox" >
+            <img v-lazy="item.imageVisitUrl"  alt="" width="100%">
         </div>
 
-
-        <p class="bottomTextBox">{{imageNewName}}</p>
+        <p class="bottomTextBox">{{item.imageNewName}}</p>
       </li>
 
-      <li>
-        <div class="showBox videoBox" v-for="item in uParticipantImages">
+      <li class="video" v-for="item in uParticipantVideos">
+        <div class="showBox videoBox">
           <video
             id="my-player"
             class="video-js"
             controls
             preload="auto"
-            :poster="videoVisitUrl='/static/video/ucanCup_summary.jpg'"
             data-setup='{}'>
-            <source :src="item.imageVisitUrl" :type="videoType"></source>
-            <source :src="videoVisitUrl" :type="videoType"></source>
-            <source :src="videoVisitUrl" :type="videoType"></source>
+            <source :src="item.videoVisitUrl" :type="'video/' + item.videoType"></source>
+            <source :src="item.videoVisitUrl" :type="'video/' +item.videoType"></source>
+            <source :src="item.videoVisitUrl" :type="'video/' +item.videoType"></source>
             <p class="vjs-no-js">
               您的浏览器还不支持此类型视频播放！请尝试升级浏览器！
               <a href="http://videojs.com/html5-video-support/" target="_blank">
@@ -104,7 +101,7 @@
             </p>
           </video>
         </div>
-        <p class="bottomTextBox">{{videoNewName}}</p>
+        <p class="bottomTextBox">{{item.videoNewName}}</p>
       </li>
 
     </ul>
@@ -122,12 +119,9 @@
       return {
         schoolName:'',
         schoolIntroduction:'',
-        imageVisitUrl: '',
-        imageNewName: '学校展示图片',
-        videoVisitUrl: '',
-        videoNewName:'学校展示视频',
-        videoImg: '',
-        videoType:''
+        uParticipantImages: '',
+        uParticipantVideos: '',
+        videoImg: ''
       }
     },
     components: {},

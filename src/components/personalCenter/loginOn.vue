@@ -139,7 +139,7 @@
     methods: {
       loginOn(){
 
-        if (!/^1[34578][0-9]{9}/.test(this.userName) && !/[a-zA-Z0-9]{1,10}@[a-zA-Z0-9]{1,5}\.[a-zA-Z0-9]{1,5}/.test(this.userName)) {
+        if (!/^1[34578][0-9]{9}/.test(this.userName).test(this.userName)) {
           this.dialogStatus = true;
           this.dialogText = '您的账号格式有误（手机或者邮箱）'
           return

@@ -31,11 +31,11 @@
       <ul >
         <li v-for="item in sponsors">
           <div class="inBox_img">
-            <img :src="item.coursePicture" alt="" width="100%" height="140px">
+            <img :src="item.sponsorImages[0].imageVisitUrl" alt="" width="100%" height="140px">
           </div>
           <div class="inBox_text">
                 <span>
-                  {{item.sponsors}}
+                  {{item.sponsorName}}
                 </span>
           </div>
         </li>
@@ -52,20 +52,20 @@
     name: 'sponsor',
     data () {
       return {
-        sponsors:[]
+        sponsors:''
       }
     },
     components: {},
     mounted: function () {
 
-      axios.get("./static/getmock/aboutMe.json", {})
+      axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getSponsorList", {})
         .then(function (response) {
 
           var result = response.data;
 
           if (result.code == 0) {
             console.log(result)
-            this.$set(this, "sponsors", result.data.sponsor.sponsors);
+            this.$set(this, "sponsors", result.data);
           } else {
             console.log(result.msg);
           }

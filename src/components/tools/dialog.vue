@@ -13,7 +13,6 @@
 
 
 <template>
-  <transition name="fade">
     <div v-show="dialogStatus">
 
       <div class="js_dialog" id="iosDialog2">
@@ -28,7 +27,6 @@
 
 
     </div>
-  </transition>
 
 </template>
 
