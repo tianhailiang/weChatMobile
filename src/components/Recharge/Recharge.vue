@@ -287,18 +287,29 @@
         var vm = this;
         WeixinJSBridge.invoke(
           'getBrandWCPayRequest', {
-            "appId": data.appid,     //公众号名称，由商户传入
+            "appId": data.appId,     //公众号名称，由商户传入
             "timeStamp": data.timeStamp, //时间戳，自1970年以来的秒数
             "nonceStr": data.nonceStr, //随机串
             "package": data.package,
             "signType": data.signType, //微信签名方式
             "paySign": data.paySign //微信签名
+
+//              "appId": "wx94db2a3298ae63ab",     //公众号名称，由商户传入
+//            "timeStamp": "1496909691562", //时间戳，自1970年以来的秒数
+//            "nonceStr": "13798283", //随机串
+//            "package": "attach=yongle&bank_type=WX&body=%E6%B5%8B%E8%AF%95%E5%95%86%E5%93%81001&fee_type=1&input_charset=UTF-8&notify_url=http%3A%2F%2Fwww.ucan365.com&out_trade_no=123456&partner=1481744742&spbill_create_ip=192.168.2.237&total_fee=100&sign=7AEF70DEA935288323307DC8FEED1FBC",
+//            "signType": "MD5", //微信签名方式
+//            "paySign": "8fad7f8d563e22e3ae19f5a246bd5bf72c44719a" //微信签名
           }, function (res) {
             // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
             if (res.err_msg == "get_brand_wcpay_request：ok") {
 //              vm.$router.push("/paySuccess");
 
-            } else {
+            } else{
+              alert('res详情'+res);
+              alert(res);
+              console.log('res码')
+              console.log(res);
               alert("支付失败,请跳转页面" + res.err_msg);
 //              vm.$router.push("/payFail");
             }
