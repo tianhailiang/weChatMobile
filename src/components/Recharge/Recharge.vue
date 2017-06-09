@@ -254,7 +254,7 @@
         console.log('点击去支付');
 //        console.log('goPayfn_is_ajax'+this.is_ajax);
 //        if (this.is_ajax){
-          axios.get("http://192.168.3.142:9080/ucanchat/view/orderChat/payOrderBefore",{
+          axios.get("http://37dd129f.ngrok.io/ucanchat/view/orderChat/payOrderBefore",{
           }).then(function(response){
             //获取到了支付签名等参数
             console.log('获得支付签名等参数');

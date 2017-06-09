@@ -210,7 +210,8 @@
         upload: '',
         fdImgBoxSrc:'',
         dialogStatus: false,
-        dialogText:''
+        dialogText:'',
+        userid:1
       }
     },
     components: {
@@ -220,7 +221,7 @@
         let vm =this;
         console.log(this);
         this.upload = this.tinyImgUpload('#upload', {
-        path: '/',
+        path: 'http://192.168.3.142:9080/ucanchat/owner/postOwnerMedia',
         onSuccess: function (res) {
           console.log("成功res"+res);
           console.log('成功上传');
@@ -390,6 +391,7 @@
           }else {
             var xhr = new XMLHttpRequest();
             var formData = new FormData();
+            formData.userid = 1;
 
             for (var i = 0, f; f = ele.files[i]; i++) {
               formData.append('files', f);
