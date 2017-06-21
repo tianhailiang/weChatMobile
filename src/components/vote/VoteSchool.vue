@@ -185,13 +185,13 @@ export default {
 
            })
           .then(function (response) {
-            console.log(response)
+            
 
             var result =response.data;
 
               if(result.code==0){
 
-                 console.log(result)
+                 // console.log(result)
 
                  this.$set(this,"schoolList",result.data.schoolList);
 

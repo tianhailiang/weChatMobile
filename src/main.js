@@ -8,7 +8,7 @@ import VueLazyload from 'vue-lazyload' //基于vue的懒加载
 import videoCss from 'video.js/dist/video-js.min.css' //视频插件样式
 require('video.js'); //视频插件
 
-import setWechatTitle from './utils/setWechatTitle.js' //基于微信单页面的标题
+// import setWechatTitle from './utils/setWechatTitle.js' //基于微信单页面的标题
 
 import weui from 'weui'; //引入weui css 核心库
 
@@ -41,7 +41,8 @@ Vue.use(VueLazyload, {
 //控制微信页面的标题
 router.beforeEach((to, from, next) => {
 
-   setWechatTitle(to.meta.title);
+   // setWechatTitle(to.meta.title);
+    document.title = to.meta.title;
 
   next()
 });

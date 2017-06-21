@@ -323,7 +323,7 @@ export default {
 
        //./static/getmock/contestant.json
       //http://192.168.3.140:8080/ucanchat/view/activity/getStudentList
-       axios.get("http://192.168.3.140:8080/ucanchat/view/activity/getStudentList",{
+       axios.get("./static/getmock/contestant.json",{
               params:{
                 id:this.$route.params.id
               }
@@ -336,7 +336,7 @@ export default {
 
                 if(result.code==0){
 
-                   console.log(result)
+                   // console.log(result)
                    this.$set(this,"contestantList",result.data.particiList);
                    // this.$set(this,"balance",result.data.balance);
 
@@ -375,7 +375,6 @@ export default {
 
                    wx.ready(function() {
 
-
                       wx.onMenuShareTimeline({
                             title: '海盗', // 分享标题
                             link: window.location.href, // 分享链接
@@ -397,9 +396,6 @@ export default {
                 console.log(result.message)
               }
 
-                
-
-               
 
          }.bind(this))
          .catch(function(error){

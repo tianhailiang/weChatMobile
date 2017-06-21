@@ -67,10 +67,7 @@ html, body {
 
 }
 
-body{
-   -webkit-overflow-scrolling:touch;
-   
-}
+
 
 
 .icon {
@@ -88,7 +85,9 @@ body{
   color: #2c3e50;
 
   width:100%;
-  height:100%;
+  /* -webkit-overflow-scrolling:touch;*/
+   position: absolute;
+
 
 }
 

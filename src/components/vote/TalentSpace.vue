@@ -230,10 +230,6 @@ export default {
 	mounted:function(){
 
 
-
-        //./static/getmock/talentSpace.json
-        //http://192.168.3.140:8080/ucanchat/view/activity/getStudentDetailInfo
-       // console.log(this.$route.params.particiNum)
        var canvas=this.$refs.canvas;
        var ctx = canvas.getContext("2d");
       
@@ -262,6 +258,10 @@ export default {
        ctx.fillStyle="#65390a";
        ctx.textAlign="center";
        ctx.fillText(this.ticket+"票", 42.5, 47.5);
+
+        //./static/getmock/talentSpace.json
+        //http://192.168.3.140:8080/ucanchat/view/activity/getStudentDetailInfo
+       // console.log(this.$route.params.particiNum)
      
         axios.get("./static/getmock/talentSpace.json",{
                params:{
@@ -275,7 +275,7 @@ export default {
                 
                 if(result.code==0){
 
-                   console.log(result)
+                   // console.log(result)
                    this.$set(this,"contestantPicture",result.data.particiHeadImage.imageVisitUrl);
                    this.$set(this,'contestantName',result.data.particiName);
                   this.$set(this,'contestantNumber',result.data.particiNum);

@@ -4,53 +4,52 @@
   
   "data":{
 
-    
-      "contestantPicture":"./static/mockImg/p1.jpg",
-      "contestantName":"thl",
-      "contestantNumber":"001",
-      "ticket":"100",
-      "features":"我是张小白，我的特征是爱跳舞和唱歌",
-      "declaration":"我的参赛宣言",
-   "albumList":[
-       {"picTure":"./static/mockImg/p1.jpg"},
-       {"picTure":"./static/mockImg/p2.jpg"},
-       {"picTure":"./static/mockImg/p3.jpg"},
-       {"picTure":"./static/mockImg/p4.jpg"},
-       {"picTure":"./static/mockImg/p1.jpg"},
-       {"picTure":"./static/mockImg/p2.jpg"}
+      "particiHeadImage":{"imageVisitUrl":"./static/mockImg/p1.jpg"},
+      
+      "particiName":"thl",
+      "particiNum":"001",
+      "particiVotes":"100",
+      "particiIntroduce":"我是张小白，我的特征是爱跳舞和唱歌",
+   "uParticipantImages":[
+       {"imageVisitUrl":"./static/mockImg/p1.jpg"},
+       {"imageVisitUrl":"./static/mockImg/p2.jpg"},
+       {"imageVisitUrl":"./static/mockImg/p3.jpg"},
+       {"imageVisitUrl":"./static/mockImg/p4.jpg"},
+       {"imageVisitUrl":"./static/mockImg/p1.jpg"},
+       {"imageVisitUrl":"./static/mockImg/p2.jpg"}
 
    ],
 
-   "videoList":[
+   "uParticipantVideos":[
 
       {
         "videoPicture":"./static/mockImg/p1.jpg",
-        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4","type":"mp4"
+        "videoVisitUrl":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4","videoType":"mp4"
       },
       {
         "videoPicture":"./static/mockImg/p2.jpg",
-        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
-        "type":"mp4"
+        "videoVisitUrl":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        "videoType":"mp4"
       },
       {
         "videoPicture":"./static/mockImg/p3.jpg",
-        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
-        "type":"mp4"
+        "videoVisitUrl":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        "videoType":"mp4"
       },
       {
         "videoPicture":"./static/mockImg/p4.jpg",
-        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
-        "type":"mp4"
+        "videoVisitUrl":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        "videoType":"mp4"
       },
       {
         "videoPicture":"./static/mockImg/p1.jpg",
-        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
-        "type":"mp4"
+        "videoVisitUrl":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        "videoType":"mp4"
       },
       {
         "videoPicture":"./static/mockImg/p2.jpg",
-        "videoSource":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
-        "type":"mp4"
+        "videoVisitUrl":"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        "videoType":"mp4"
       }
 
    ]

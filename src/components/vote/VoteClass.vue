@@ -114,7 +114,7 @@ export default {
 
             var result =response.data;
 
-              console.log(result)
+              // console.log(result)
               if(result.code==0){
 
                 
